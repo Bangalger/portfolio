@@ -1,0 +1,139 @@
+/* ============================================================
+   MICROGRAPHICS — Decoraciones técnicas (CSS puro, sin JS).
+   Cruces de registro, grilla de fondo, ticks, etiquetas, corchetes.
+   ============================================================ */
+
+/* ---------- 2. Grilla de fondo (líneas técnicas sutiles) ---------- */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-image: linear-gradient(
+      to right,
+      var(--grid-line) 1px,
+      transparent 1px
+    ),
+    linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px);
+  background-size: 60px 60px;
+  transition: opacity var(--dur) var(--ease);
+}
+
+/* ---------- 1. Cruces de registro — esquinas de viewport ---------- */
+.reg-marks {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.reg-marks span {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3E%3Cg stroke='%23808080' stroke-width='0.5'%3E%3Cline x1='8' y1='2' x2='8' y2='14'/%3E%3Cline x1='2' y1='8' x2='14' y2='8'/%3E%3C/g%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  /* recolorea según --mark mediante opacidad del contenedor */
+  opacity: 1;
+}
+
+/* tinte real usando mask para respetar --mark */
+.reg-marks span {
+  background-image: none;
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3E%3Cg stroke='black' stroke-width='0.75'%3E%3Cline x1='8' y1='2' x2='8' y2='14'/%3E%3Cline x1='2' y1='8' x2='14' y2='8'/%3E%3C/g%3E%3C/svg%3E")
+    center / contain no-repeat;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3E%3Cg stroke='black' stroke-width='0.75'%3E%3Cline x1='8' y1='2' x2='8' y2='14'/%3E%3Cline x1='2' y1='8' x2='14' y2='8'/%3E%3C/g%3E%3C/svg%3E")
+    center / contain no-repeat;
+  background-color: var(--mark);
+}
+
+.reg-marks span.tl {
+  top: 18px;
+  left: 18px;
+}
+.reg-marks span.tr {
+  top: 18px;
+  right: 18px;
+}
+.reg-marks span.bl {
+  bottom: 18px;
+  left: 18px;
+}
+.reg-marks span.br {
+  bottom: 18px;
+  right: 18px;
+}
+
+/* ---------- 3. Regla / ticks — separadores de sección ---------- */
+.section-divider {
+  position: relative;
+  height: 1px;
+  background: var(--border);
+  margin: 0 var(--gutter);
+}
+
+.section-divider::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 8px;
+  background-image: repeating-linear-gradient(
+    to right,
+    var(--mark) 0,
+    var(--mark) 1px,
+    transparent 1px,
+    transparent 60px
+  );
+}
+
+/* ---------- 4. Etiquetas de referencia técnica ---------- */
+.ref-label {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 0.65rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.ref-label::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}
+
+/* ---------- 5. Corchetes de esquina — bloques destacados ---------- */
+.bracket {
+  position: relative;
+  padding: clamp(1.5rem, 4vw, 2.5rem);
+}
+
+.bracket::before,
+.bracket::after {
+  content: "";
+  position: absolute;
+  width: 22px;
+  height: 22px;
+  border-color: var(--mark);
+  border-style: solid;
+  border-width: 0;
+}
+
+.bracket::before {
+  top: 0;
+  left: 0;
+  border-top-width: 1px;
+  border-left-width: 1px;
+}
+
+.bracket::after {
+  bottom: 0;
+  right: 0;
+  border-bottom-width: 1px;
+  border-right-width: 1px;
+}

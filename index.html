@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="es" data-lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Germán Figueroa · Full Stack Developer</title>
+    <meta
+      name="description"
+      content="Germán Figueroa — Full Stack Developer. 9+ years building web products with React, Node.js and TypeScript."
+    />
+
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+
+    <!-- Jost (Futura-like) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web@2.1.1/src/thin/index.js"></script>
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/theme.css" />
+    <link rel="stylesheet" href="css/typography.css" />
+    <link rel="stylesheet" href="css/micrographics.css" />
+    <link rel="stylesheet" href="css/layout.css" />
+    <link rel="stylesheet" href="css/components.css" />
+  </head>
+
+  <body>
+    <!-- Cruces de registro en esquinas del viewport -->
+    <div class="reg-marks" aria-hidden="true">
+      <span class="tl"></span>
+      <span class="tr"></span>
+      <span class="bl"></span>
+      <span class="br"></span>
+    </div>
+
+    <!-- ============ NAV ============ -->
+    <header class="nav">
+      <a class="nav__brand" href="#hero">G·FIGUEROA</a>
+
+      <nav class="nav__links" aria-label="Secciones">
+        <a class="nav__link" href="#about">
+          <i class="ph-thin ph-user"></i>
+          <span lang="es">Sobre mí</span><span lang="en">About</span>
+        </a>
+        <a class="nav__link" href="#experience">
+          <i class="ph-thin ph-briefcase"></i>
+          <span lang="es">Experiencia</span><span lang="en">Experience</span>
+        </a>
+        <a class="nav__link" href="#stack">
+          <i class="ph-thin ph-code"></i>
+          <span lang="es">Stack</span><span lang="en">Stack</span>
+        </a>
+        <a class="nav__link" href="#contact">
+          <i class="ph-thin ph-envelope"></i>
+          <span lang="es">Contacto</span><span lang="en">Contact</span>
+        </a>
+      </nav>
+
+      <div class="nav__tools">
+        <button
+          class="toggle toggle--lang"
+          type="button"
+          aria-label="Cambiar idioma / Switch language"
+        >
+          <i class="ph-thin ph-globe"></i>
+          <span lang="es">EN</span><span lang="en">ES</span>
+        </button>
+        <button
+          class="toggle toggle--theme"
+          type="button"
+          aria-label="Cambiar tema / Toggle theme"
+        >
+          <span class="icon-sun"><i class="ph-thin ph-sun"></i></span>
+          <span class="icon-moon"><i class="ph-thin ph-moon"></i></span>
+        </button>
+      </div>
+    </header>
+
+    <main>
+      <!-- ============ HERO ============ -->
+      <section class="hero wrap" id="hero">
+        <span class="tag">[00] · INDEX</span>
+        <h1 class="hero__name">Germán<br />Figueroa</h1>
+        <p class="hero__role">Full Stack Developer</p>
+
+        <div class="hero__meta tech">
+          <span>9+ <span lang="es">años</span><span lang="en">years</span></span>
+          <span>React</span>
+          <span>Node.js</span>
+          <span>TypeScript</span>
+        </div>
+
+        <p class="hero__tagline body">
+          <span lang="es"
+            >Construyendo productos web con foco en React y prácticas de
+            desarrollo modernas.</span
+          >
+          <span lang="en"
+            >Building web products with focus on React and modern dev
+            practices.</span
+          >
+        </p>
+
+        <a class="hero__scroll" href="#about">
+          <span lang="es">Desplazar</span><span lang="en">Scroll</span>
+          <i class="ph-thin ph-arrow-down"></i>
+        </a>
+      </section>
+
+      <div class="section-divider" aria-hidden="true"></div>
+
+      <!-- ============ [01] ABOUT ============ -->
+      <section class="wrap" id="about">
+        <div class="section__head">
+          <p class="ref-label">[01] · <span lang="es">Sobre mí</span><span lang="en">About</span></p>
+          <h2 class="section__title">
+            <span lang="es">Perfil</span><span lang="en">Profile</span>
+          </h2>
+        </div>
+
+        <div class="about__grid">
+          <div class="about__bio body">
+            <p lang="es">
+              Developer Full Stack con
+              <span class="about__highlight">9+ años de experiencia</span>
+              construyendo aplicaciones web, con foco en React y desarrollo
+              backend con Node.js. También trabajo con Python cuando el proyecto
+              lo requiere. Me mantengo actualizado con prácticas de desarrollo
+              impulsadas por IA, usando automatización para mejorar la
+              eficiencia, sin perder la responsabilidad total sobre el producto.
+            </p>
+            <p lang="en">
+              Full Stack Developer with
+              <span class="about__highlight">9+ years of experience</span>
+              building web applications, with a strong focus on React and
+              occasional backend development using Node.js. I also work with
+              Python when the project requires it. I stay up to date with modern
+              AI-driven development practices, using automation and AI tools to
+              improve efficiency, while maintaining full ownership of the
+              implementation.
+            </p>
+          </div>
+
+          <div class="bracket highlights">
+            <div class="highlight">
+              <span class="highlight__num">9+</span>
+              <span class="highlight__label"
+                ><span lang="es">Años de experiencia</span
+                ><span lang="en">Years of experience</span></span
+              >
+            </div>
+            <div class="highlight">
+              <span class="highlight__num">05</span>
+              <span class="highlight__label"
+                ><span lang="es">Empresas</span><span lang="en">Companies</span></span
+              >
+            </div>
+            <div class="highlight">
+              <span class="highlight__num">∞</span>
+              <span class="highlight__label"
+                ><span lang="es">Foco en React</span
+                ><span lang="en">React focused</span></span
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="section-divider" aria-hidden="true"></div>
+
+      <!-- ============ [02] EXPERIENCE ============ -->
+      <section class="wrap" id="experience">
+        <div class="section__head">
+          <p class="ref-label">[02] · <span lang="es">Experiencia</span><span lang="en">Experience</span></p>
+          <h2 class="section__title">Timeline</h2>
+        </div>
+
+        <ol class="timeline">
+          <li class="tl-item tl-item--current">
+            <div class="tl-item__head">
+              <span class="tl-item__company">
+                <img class="tl-item__logo" src="assets/logos/globant.svg" alt="Globant" />
+                <span class="badge">Present</span>
+              </span>
+              <time class="tl-item__period">Nov 2025 — <span lang="es">Presente</span><span lang="en">Present</span></time>
+            </div>
+            <p class="tl-item__role">
+              Frontend Developer · <span class="client">PharmaMar</span>
+            </p>
+          </li>
+
+          <li class="tl-item">
+            <div class="tl-item__head">
+              <span class="tl-item__company">
+                <img class="tl-item__logo" src="assets/logos/valere.svg" alt="Valere" />
+              </span>
+              <time class="tl-item__period">Jun 2025 — May 2026</time>
+            </div>
+            <p class="tl-item__role">
+              Frontend Developer · <span class="client">SoyElla / ELLA</span>
+            </p>
+          </li>
+
+          <li class="tl-item">
+            <div class="tl-item__head">
+              <span class="tl-item__company">
+                <img class="tl-item__logo" src="assets/logos/command-alkon.svg" alt="Command Alkon" />
+              </span>
+              <time class="tl-item__period">Oct 2023 — Nov 2025</time>
+            </div>
+            <p class="tl-item__role">Frontend Developer</p>
+          </li>
+
+          <li class="tl-item">
+            <div class="tl-item__head">
+              <span class="tl-item__company">
+                <img class="tl-item__logo" src="assets/logos/ort.svg" alt="ORT Argentina" />
+              </span>
+              <time class="tl-item__period">Jan 2019 — Oct 2023</time>
+            </div>
+            <p class="tl-item__role">
+              Full Stack Developer · <span class="client">Campus Virtual</span>
+            </p>
+          </li>
+
+          <li class="tl-item">
+            <div class="tl-item__head">
+              <span class="tl-item__company">REA</span>
+              <time class="tl-item__period">Jan 2019 — Jan 2024</time>
+            </div>
+            <p class="tl-item__role">Full Stack Developer</p>
+          </li>
+        </ol>
+      </section>
+
+      <div class="section-divider" aria-hidden="true"></div>
+
+      <!-- ============ [03] STACK ============ -->
+      <section class="wrap" id="stack">
+        <div class="section__head">
+          <p class="ref-label">[03] · Stack</p>
+          <h2 class="section__title">
+            <span lang="es">Tecnologías</span><span lang="en">Skills</span>
+          </h2>
+        </div>
+
+        <div class="stack__grid">
+          <div class="stack-card">
+            <h3 class="stack-card__title">
+              <i class="ph-thin ph-browser"></i> Frontend
+            </h3>
+            <div class="chips">
+              <span class="chip">React.js</span>
+              <span class="chip">Next.js</span>
+              <span class="chip">TypeScript</span>
+              <span class="chip">Redux</span>
+              <span class="chip">Emotion</span>
+              <span class="chip">Material UI</span>
+              <span class="chip">Chakra UI</span>
+              <span class="chip">Figma</span>
+            </div>
+          </div>
+
+          <div class="stack-card">
+            <h3 class="stack-card__title">
+              <i class="ph-thin ph-stack"></i> Backend
+            </h3>
+            <div class="chips">
+              <span class="chip">Node.js</span>
+              <span class="chip">Express.js</span>
+              <span class="chip">PHP</span>
+              <span class="chip">Laravel</span>
+              <span class="chip">PostgreSQL</span>
+            </div>
+          </div>
+
+          <div class="stack-card">
+            <h3 class="stack-card__title">
+              <i class="ph-thin ph-wrench"></i>
+              <span lang="es">Herramientas</span><span lang="en">Tools &amp; Practices</span>
+            </h3>
+            <div class="chips">
+              <span class="chip">GitHub</span>
+              <span class="chip">Jest</span>
+              <span class="chip">OpenTelemetry</span>
+              <span class="chip">Agile / Scrum</span>
+              <span class="chip">AI-assisted dev</span>
+            </div>
+          </div>
+
+          <div class="stack-card">
+            <h3 class="stack-card__title">
+              <i class="ph-thin ph-translate"></i>
+              <span lang="es">Idiomas</span><span lang="en">Languages</span>
+            </h3>
+            <div class="chips">
+              <span class="chip"
+                ><span lang="es">Español (nativo)</span
+                ><span lang="en">Spanish (native)</span></span
+              >
+              <span class="chip"
+                ><span lang="es">Inglés (avanzado)</span
+                ><span lang="en">English (advanced)</span></span
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="section-divider" aria-hidden="true"></div>
+
+      <!-- ============ [04] CONTACT ============ -->
+      <section class="wrap" id="contact">
+        <div class="section__head">
+          <p class="ref-label">[04] · <span lang="es">Contacto</span><span lang="en">Contact</span></p>
+          <h2 class="section__title">
+            <span lang="es">Hablemos</span><span lang="en">Get in touch</span>
+          </h2>
+        </div>
+
+        <div class="contact__grid">
+          <a class="contact-cell" href="mailto:geerman.figueroa@gmail.com">
+            <i class="ph-thin ph-envelope"></i>
+            <span>
+              <span class="contact-cell__label">Email</span>
+              <span class="contact-cell__value">geerman.figueroa@gmail.com</span>
+            </span>
+          </a>
+          <a class="contact-cell" href="#" aria-label="GitHub">
+            <i class="ph-thin ph-github-logo"></i>
+            <span>
+              <span class="contact-cell__label">GitHub</span>
+              <span class="contact-cell__value"
+                ><span lang="es">A confirmar</span><span lang="en">To be confirmed</span></span
+              >
+            </span>
+          </a>
+          <a class="contact-cell" href="#" aria-label="LinkedIn">
+            <i class="ph-thin ph-linkedin-logo"></i>
+            <span>
+              <span class="contact-cell__label">LinkedIn</span>
+              <span class="contact-cell__value"
+                ><span lang="es">A confirmar</span><span lang="en">To be confirmed</span></span
+              >
+            </span>
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <!-- ============ FOOTER ============ -->
+    <footer class="footer">
+      <span>© 2026 Germán Figueroa</span>
+      <span>Full Stack Developer · React / Node.js</span>
+      <span>[ EOF ]</span>
+    </footer>
+
+    <script src="js/ui.js"></script>
+  </body>
+</html>

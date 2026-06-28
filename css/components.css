@@ -1,0 +1,271 @@
+/* ============================================================
+   COMPONENTS — Timeline, cards, toggles, nav buttons.
+   ============================================================ */
+
+/* ---------- Toggle buttons (theme / lang) ---------- */
+.toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  transition: color var(--dur) var(--ease),
+    border-color var(--dur) var(--ease), background var(--dur) var(--ease);
+}
+
+.toggle:hover {
+  color: var(--text);
+  border-color: var(--text-muted);
+}
+
+.toggle i {
+  font-size: 1.05rem;
+  line-height: 1;
+}
+
+/* theme toggle: muestra el ícono según el modo activo */
+.toggle--theme .icon-moon {
+  display: none;
+}
+.toggle--theme .icon-sun {
+  display: inline-flex;
+}
+:root[data-theme="dark"] .toggle--theme .icon-sun {
+  display: none;
+}
+:root[data-theme="dark"] .toggle--theme .icon-moon {
+  display: inline-flex;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .toggle--theme .icon-sun {
+    display: none;
+  }
+  :root:not([data-theme="light"]) .toggle--theme .icon-moon {
+    display: inline-flex;
+  }
+}
+
+/* lang toggle */
+.toggle--lang {
+  width: auto;
+  padding-inline: 0.7rem;
+  gap: 0.4rem;
+  font-size: 0.7rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+/* ---------- TIMELINE (Experience) ---------- */
+.timeline {
+  position: relative;
+  margin-left: 0.5rem;
+  padding-left: 2rem;
+  border-left: 1px solid var(--border);
+}
+
+.tl-item {
+  position: relative;
+  padding-block: clamp(1.25rem, 3vw, 2rem);
+}
+
+.tl-item:not(:last-child) {
+  border-bottom: 1px solid var(--border);
+}
+
+.tl-item::before {
+  content: "";
+  position: absolute;
+  left: calc(-2rem - 5px);
+  top: clamp(1.6rem, 3.4vw, 2.35rem);
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--bg);
+  border: 1px solid var(--text-muted);
+}
+
+.tl-item--current::before {
+  background: var(--accent);
+  border-color: var(--accent);
+  box-shadow: 0 0 0 4px var(--accent-subtle);
+}
+
+.tl-item__head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.tl-item__company {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  font-weight: 500;
+  font-size: 1.15rem;
+  letter-spacing: 0.04em;
+}
+
+.tl-item__logo {
+  height: 22px;
+  width: auto;
+  opacity: 0.85;
+}
+
+.tl-item__period {
+  color: var(--text-muted);
+  font-size: 0.78rem;
+  letter-spacing: 0.15em;
+  white-space: nowrap;
+}
+
+.tl-item__role {
+  margin-top: 0.4rem;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.tl-item__role .client {
+  color: var(--accent);
+}
+
+/* badge "present" */
+.badge {
+  display: inline-block;
+  margin-left: 0.5rem;
+  padding: 0.1rem 0.5rem;
+  font-size: 0.6rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent);
+  border: 1px solid var(--accent);
+}
+
+/* ---------- STACK cards ---------- */
+.stack-card__title {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 1rem;
+  font-size: 0.7rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.stack-card__title i {
+  font-size: 1.1rem;
+  color: var(--accent);
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.chip {
+  padding: 0.35rem 0.7rem;
+  font-size: 0.8rem;
+  letter-spacing: 0.04em;
+  border: 1px solid var(--border);
+  background: var(--bg-secondary);
+  transition: border-color var(--dur) var(--ease),
+    color var(--dur) var(--ease);
+}
+
+.chip:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+/* ---------- ABOUT highlight ---------- */
+.about__bio {
+  font-size: clamp(1rem, 1.5vw, 1.1rem);
+}
+
+.about__highlight {
+  background: var(--accent-subtle);
+}
+
+.highlights {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.highlight {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1rem;
+  align-items: baseline;
+}
+
+.highlight__num {
+  font-weight: 500;
+  font-size: 2rem;
+  letter-spacing: 0.02em;
+  color: var(--accent);
+  line-height: 1;
+}
+
+.highlight__label {
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+/* ---------- CONTACT cells ---------- */
+.contact-cell {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: clamp(1.5rem, 4vw, 2.25rem);
+  background: var(--bg);
+  transition: background var(--dur) var(--ease);
+}
+
+.contact-cell:hover {
+  background: var(--bg-secondary);
+}
+
+.contact-cell i {
+  font-size: 1.5rem;
+  color: var(--accent);
+}
+
+.contact-cell__label {
+  display: block;
+  font-size: 0.62rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 0.25rem;
+}
+
+.contact-cell__value {
+  font-size: 0.95rem;
+  letter-spacing: 0.04em;
+  word-break: break-word;
+}
+
+/* scroll indicator pulse */
+@keyframes nudge {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(4px);
+  }
+}
+
+.hero__scroll i {
+  animation: nudge 1.8s var(--ease) infinite;
+}

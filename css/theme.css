@@ -1,0 +1,71 @@
+/* ============================================================
+   THEME — Color tokens · light / dark
+   El rojo #CC2200 es el único color cromático del sistema.
+   ============================================================ */
+
+:root {
+  --accent: #cc2200;
+
+  /* easing & motion */
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --dur: 0.35s;
+
+  /* layout */
+  --maxw: 1200px;
+  --gutter: clamp(1.25rem, 5vw, 5rem);
+}
+
+/* ---------- Light (default) ---------- */
+:root,
+:root[data-theme="light"] {
+  --bg: #f5f5f1;
+  --bg-secondary: #ebebe7;
+  --text: #1a1a1a;
+  --text-muted: #7a7a72;
+  --accent: #cc2200;
+  --accent-subtle: rgba(204, 34, 0, 0.08);
+  --grid-line: rgba(0, 0, 0, 0.055);
+  --border: rgba(0, 0, 0, 0.1);
+  --mark: rgba(0, 0, 0, 0.18);
+
+  color-scheme: light;
+}
+
+/* ---------- Dark ---------- */
+:root[data-theme="dark"] {
+  --bg: #0c0c0c;
+  --bg-secondary: #141414;
+  --text: #e8e8e0;
+  --text-muted: #5a5a52;
+  --accent: #cc2200;
+  --accent-subtle: rgba(204, 34, 0, 0.1);
+  --grid-line: rgba(255, 255, 255, 0.035);
+  --border: rgba(255, 255, 255, 0.07);
+  --mark: rgba(255, 255, 255, 0.2);
+
+  color-scheme: dark;
+}
+
+/* ---------- Auto (no explicit preference saved) ---------- */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0c0c0c;
+    --bg-secondary: #141414;
+    --text: #e8e8e0;
+    --text-muted: #5a5a52;
+    --accent: #cc2200;
+    --accent-subtle: rgba(204, 34, 0, 0.1);
+    --grid-line: rgba(255, 255, 255, 0.035);
+    --border: rgba(255, 255, 255, 0.07);
+    --mark: rgba(255, 255, 255, 0.2);
+
+    color-scheme: dark;
+  }
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  transition: background-color var(--dur) var(--ease),
+    color var(--dur) var(--ease);
+}

@@ -1,0 +1,62 @@
+/* ============================================================
+   TYPOGRAPHY — Jost (Futura-like). Una sola familia.
+   La variación viene del peso y el letter-spacing.
+   ============================================================ */
+
+body {
+  font-family: "Jost", "Century Gothic", "Futura", system-ui, sans-serif;
+  font-weight: 300;
+  font-size: 1rem;
+  letter-spacing: 0.02em;
+}
+
+/* Hero — nombre */
+.hero__name {
+  font-weight: 700;
+  font-size: clamp(3.5rem, 10vw, 9rem);
+  letter-spacing: 0.18em;
+  line-height: 0.95;
+  text-transform: uppercase;
+  /* tracking añade espacio a la derecha del último glifo */
+  margin-right: -0.18em;
+}
+
+/* Títulos de sección */
+.section__title {
+  font-weight: 500;
+  font-size: clamp(1.1rem, 2vw, 1.4rem);
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+/* Etiquetas técnicas — [01] HERO */
+.tag,
+.section__index {
+  font-weight: 400;
+  font-size: 0.7rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+/* Body / descripciones */
+.body,
+p {
+  font-weight: 300;
+  letter-spacing: 0.02em;
+  line-height: 1.7;
+}
+
+/* Datos técnicos / fechas */
+.tech,
+.meta,
+time {
+  font-weight: 400;
+  font-size: 0.8rem;
+  letter-spacing: 0.15em;
+}
+
+strong,
+b {
+  font-weight: 500;
+}
