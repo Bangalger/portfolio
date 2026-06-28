@@ -155,7 +155,7 @@
 
 /* ---------- LOGOS en timeline ---------- */
 .tl-item__logo {
-  height: 22px;
+  height: 28px;
   width: auto;
   /* opacidad base reducida para coherencia */
   opacity: 0.85;
@@ -214,6 +214,49 @@
   :root:not([data-theme="light"]) .tl-item__logo--color {
     filter: saturate(0.9) brightness(1.15);
     opacity: 0.9;
+  }
+}
+
+/*
+  Logos cuadrados con fondo de color propio (Valere) — el fondo es parte de
+  su identidad. Se muestran como ícono cuadrado, sin invert en ningún modo.
+*/
+.tl-item__logo--badge {
+  height: 32px;
+  width: 32px;
+  border-radius: 4px;
+  object-fit: cover;
+  opacity: 1;
+  filter: none;
+}
+:root[data-theme="dark"] .tl-item__logo--badge {
+  filter: none;
+  opacity: 1;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .tl-item__logo--badge {
+    filter: none;
+    opacity: 1;
+  }
+}
+
+/*
+  Logos con fondo blanco sólido (ORT) — en light fundimos el blanco con el
+  fondo claro vía multiply; en dark llevamos el trazo a blanco limpio.
+*/
+.tl-item__logo--white-bg {
+  mix-blend-mode: multiply;
+}
+:root[data-theme="dark"] .tl-item__logo--white-bg {
+  mix-blend-mode: normal;
+  filter: brightness(0) invert(1);
+  opacity: 0.85;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .tl-item__logo--white-bg {
+    mix-blend-mode: normal;
+    filter: brightness(0) invert(1);
+    opacity: 0.85;
   }
 }
 
