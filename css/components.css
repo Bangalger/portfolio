@@ -109,11 +109,6 @@
   letter-spacing: 0.04em;
 }
 
-.tl-item__logo {
-  height: 22px;
-  width: auto;
-  opacity: 0.85;
-}
 
 .tl-item__period {
   color: var(--text-muted);
@@ -130,6 +125,18 @@
   text-transform: uppercase;
 }
 
+/* Dark mode: textos de experience más visibles */
+:root[data-theme="dark"] .tl-item__role,
+:root[data-theme="dark"] .tl-item__period {
+  color: var(--text);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .tl-item__role,
+  :root:not([data-theme="light"]) .tl-item__period {
+    color: var(--text);
+  }
+}
+
 .tl-item__role .client {
   color: var(--accent);
 }
@@ -144,6 +151,70 @@
   text-transform: uppercase;
   color: var(--accent);
   border: 1px solid var(--accent);
+}
+
+/* ---------- LOGOS en timeline ---------- */
+.tl-item__logo {
+  height: 22px;
+  width: auto;
+  /* opacidad base reducida para coherencia */
+  opacity: 0.85;
+  /* filtro de transición suave entre modos */
+  transition: filter var(--dur) var(--ease), opacity var(--dur) var(--ease);
+  object-fit: contain;
+  vertical-align: middle;
+}
+
+/*
+  Logos oscuros (Globant, ORT, SoyElla, Valere) — pasan a blanco en dark.
+  Se aplica a imágenes PNG/JPG sin colores corp. que se perderían en fondo oscuro.
+*/
+.tl-item__logo--dark-invert {
+  /* light: sin filtro */
+}
+:root[data-theme="dark"] .tl-item__logo--dark-invert {
+  filter: brightness(0) invert(1);
+  opacity: 0.75;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .tl-item__logo--dark-invert {
+    filter: brightness(0) invert(1);
+    opacity: 0.75;
+  }
+}
+
+/*
+  Logos mixtos (texto oscuro + acento de color) — Globant: negro + verde.
+  brightness(0) invert es demasiado agresivo; usamos invert(0.85) para aclarar
+  los paths oscuros sin perder completamente el color corporativo.
+*/
+.tl-item__logo--dark-lighten {
+  /* light: sin filtro */
+}
+:root[data-theme="dark"] .tl-item__logo--dark-lighten {
+  filter: invert(0.88) hue-rotate(180deg);
+  opacity: 0.88;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .tl-item__logo--dark-lighten {
+    filter: invert(0.88) hue-rotate(180deg);
+    opacity: 0.88;
+  }
+}
+
+.tl-item__logo--color {
+  /* light: ligera reducción de saturación para integrarse */
+  filter: saturate(0.85);
+}
+:root[data-theme="dark"] .tl-item__logo--color {
+  filter: saturate(0.9) brightness(1.15);
+  opacity: 0.9;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .tl-item__logo--color {
+    filter: saturate(0.9) brightness(1.15);
+    opacity: 0.9;
+  }
 }
 
 /* ---------- STACK cards ---------- */

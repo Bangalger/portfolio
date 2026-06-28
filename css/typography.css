@@ -19,6 +19,8 @@ body {
   text-transform: uppercase;
   /* tracking añade espacio a la derecha del último glifo */
   margin-right: -0.18em;
+  color: var(--accent-name);
+  transition: color var(--dur) var(--ease);
 }
 
 /* Títulos de sección */

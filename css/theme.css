@@ -23,6 +23,7 @@
   --text: #1a1a1a;
   --text-muted: #7a7a72;
   --accent: #cc2200;
+  --accent-name: #cc2200;     /* rojo · nombre hero en light */
   --accent-subtle: rgba(204, 34, 0, 0.08);
   --grid-line: rgba(0, 0, 0, 0.055);
   --border: rgba(0, 0, 0, 0.1);
@@ -36,11 +37,12 @@
   --bg: #0c0c0c;
   --bg-secondary: #141414;
   --text: #e8e8e0;
-  --text-muted: #5a5a52;
+  --text-muted: #8a8a82;      /* más claro para legibilidad en dark */
   --accent: #cc2200;
+  --accent-name: #e86c2c;     /* naranja cálido · nombre hero en dark */
   --accent-subtle: rgba(204, 34, 0, 0.1);
   --grid-line: rgba(255, 255, 255, 0.035);
-  --border: rgba(255, 255, 255, 0.07);
+  --border: rgba(255, 255, 255, 0.09);
   --mark: rgba(255, 255, 255, 0.2);
 
   color-scheme: dark;
@@ -52,11 +54,12 @@
     --bg: #0c0c0c;
     --bg-secondary: #141414;
     --text: #e8e8e0;
-    --text-muted: #5a5a52;
+    --text-muted: #8a8a82;
     --accent: #cc2200;
+    --accent-name: #e86c2c;
     --accent-subtle: rgba(204, 34, 0, 0.1);
     --grid-line: rgba(255, 255, 255, 0.035);
-    --border: rgba(255, 255, 255, 0.07);
+    --border: rgba(255, 255, 255, 0.09);
     --mark: rgba(255, 255, 255, 0.2);
 
     color-scheme: dark;
