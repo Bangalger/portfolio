@@ -1,364 +1,536 @@
 <!DOCTYPE html>
-<html lang="es" data-lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Germán Figueroa · Full Stack Developer</title>
-    <meta
-      name="description"
-      content="Germán Figueroa — Full Stack Developer. 9+ years building web products with React, Node.js and TypeScript."
-    />
-
+<html class="scroll-smooth" lang="en" data-lang="es">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>G. FIGUEROA | Design Engineer Portfolio</title>
     <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Anybody:wght@100..900&family=Inter:wght@100..900&family=JetBrains+Mono:wght@100..800&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-lowest": "#ffffff",
+                        "secondary-fixed": "#e5e2e1",
+                        "on-tertiary-fixed": "#00174c",
+                        "primary-fixed": "#ffdad2",
+                        "on-secondary-container": "#636262",
+                        "surface-tint": "#b52600",
+                        "surface-container-high": "#e9e8e5",
+                        "surface-container": "#efeeeb",
+                        "on-secondary": "#ffffff",
+                        "on-primary-fixed": "#3d0600",
+                        "on-primary": "#ffffff",
+                        "tertiary": "#0049cb",
+                        "on-error-container": "#93000a",
+                        "inverse-primary": "#ffb4a3",
+                        "primary": "#cc2200",
+                        "on-tertiary": "#ffffff",
+                        "on-error": "#ffffff",
+                        "background": "#faf9f6",
+                        "surface-dim": "#dbdad7",
+                        "tertiary-fixed": "#dbe1ff",
+                        "secondary-fixed-dim": "#c8c6c5",
+                        "error-container": "#ffdad6",
+                        "surface-container-highest": "#e3e2df",
+                        "on-surface-variant": "#5c4039",
+                        "outline-variant": "#e5beb5",
+                        "on-tertiary-fixed-variant": "#003dab",
+                        "on-background": "#1b1c1a",
+                        "on-primary-fixed-variant": "#8b1b00",
+                        "surface-bright": "#faf9f6",
+                        "inverse-on-surface": "#f2f1ee",
+                        "surface-variant": "#e3e2df",
+                        "surface": "#faf9f6",
+                        "on-tertiary-container": "#eff0ff",
+                        "primary-container": "#d12d00",
+                        "error": "#ba1a1a",
+                        "primary-fixed-dim": "#ffb4a3",
+                        "tertiary-container": "#055fff",
+                        "secondary-container": "#e2dfde",
+                        "on-secondary-fixed": "#1c1b1b",
+                        "inverse-surface": "#2f312f",
+                        "on-secondary-fixed-variant": "#474746",
+                        "secondary": "#5f5e5e",
+                        "on-primary-container": "#ffede9",
+                        "tertiary-fixed-dim": "#b5c4ff",
+                        "surface-container-low": "#f4f3f0",
+                        "outline": "#906f68",
+                        "on-surface": "#1b1c1a",
+                        "dark-bg": "#0c0c0c",
+                        "dark-surface": "#141414"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-mobile": "24px",
+                        "grid-unit": "8px",
+                        "gutter": "24px",
+                        "margin-desktop": "80px",
+                        "section-gap": "160px"
+                    },
+                    "fontFamily": {
+                        "display-xl": ["Anybody"],
+                        "body-md": ["Inter"],
+                        "label-sm": ["JetBrains Mono"],
+                        "label-numeric": ["Anybody"],
+                        "headline-lg": ["Anybody"],
+                        "display-xl-mobile": ["Anybody"]
+                    },
+                    "fontSize": {
+                        "display-xl": ["120px", { "lineHeight": "110px", "letterSpacing": "-0.04em", "fontWeight": "800" }],
+                        "body-md": ["16px", { "lineHeight": "26px", "fontWeight": "400" }],
+                        "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.1em", "fontWeight": "500" }],
+                        "label-numeric": ["24px", { "lineHeight": "24px", "fontWeight": "600" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "fontWeight": "700" }],
+                        "display-xl-mobile": ["48px", { "lineHeight": "52px", "letterSpacing": "-0.02em", "fontWeight": "800" }]
+                    }
+                },
+            },
+        }
+    </script>
+    <style>
+        :root {
+            --bg-color: #faf9f6;
+            --text-color: #1b1c1a;
+            --grid-color: rgba(144, 111, 104, 0.05);
+        }
+        
+        .dark {
+            --bg-color: #0c0c0c;
+            --text-color: #e8e8e0;
+            --grid-color: rgba(255, 255, 255, 0.035);
+        }
 
-    <!-- Jost (Futura-like) -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;700&display=swap"
-      rel="stylesheet"
-    />
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            background-image: 
+                linear-gradient(to right, var(--grid-color) 1px, transparent 1px),
+                linear-gradient(to bottom, var(--grid-color) 1px, transparent 1px);
+            background-size: 40px 40px;
+            transition: background-color 0.35s ease, color 0.35s ease;
+        }
 
-    <!-- Phosphor Icons -->
-    <script src="https://unpkg.com/@phosphor-icons/web@2.1.1/src/thin/index.js"></script>
+        .dark .bg-background { background-color: var(--bg-color); }
+        .dark .text-on-background { color: var(--text-color); }
+        .dark .bg-surface-container-lowest { background-color: #000000; }
+        .dark .bg-surface-container { background-color: #141414; }
+        .dark .text-secondary { color: #8a8a82; }
+        .dark .border-outline\/10 { border-color: rgba(255,255,255,0.09); }
+        .dark .border-outline\/20 { border-color: rgba(255,255,255,0.15); }
+        .dark .border-outline\/30 { border-color: rgba(255,255,255,0.25); }
+        .dark .text-outline { color: rgba(255,255,255,0.6); }
 
-    <!-- Styles -->
-    <link rel="stylesheet" href="css/reset.css" />
-    <link rel="stylesheet" href="css/theme.css" />
-    <link rel="stylesheet" href="css/typography.css" />
-    <link rel="stylesheet" href="css/micrographics.css" />
-    <link rel="stylesheet" href="css/layout.css" />
-    <link rel="stylesheet" href="css/components.css" />
-  </head>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
 
-  <body>
-    <!-- Cruces de registro en esquinas del viewport -->
-    <div class="reg-marks" aria-hidden="true">
-      <span class="tl"></span>
-      <span class="tr"></span>
-      <span class="bl"></span>
-      <span class="br"></span>
-    </div>
+        .hal-pulse {
+            animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
 
-    <!-- ============ NAV ============ -->
-    <header class="nav">
-      <a class="nav__brand" href="#hero">G·FIGUEROA</a>
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: .7; transform: scale(0.95); }
+        }
 
-      <nav class="nav__links" aria-label="Secciones">
-        <a class="nav__link" href="#about">
-          <i class="ph-thin ph-user"></i>
-          <span lang="es">Sobre mí</span><span lang="en">About</span>
-        </a>
-        <a class="nav__link" href="#experience">
-          <i class="ph-thin ph-briefcase"></i>
-          <span lang="es">Experiencia</span><span lang="en">Experience</span>
-        </a>
-        <a class="nav__link" href="#stack">
-          <i class="ph-thin ph-code"></i>
-          <span lang="es">Stack</span><span lang="en">Stack</span>
-        </a>
-        <a class="nav__link" href="#contact">
-          <i class="ph-thin ph-envelope"></i>
-          <span lang="es">Contacto</span><span lang="en">Contact</span>
-        </a>
-      </nav>
+        .monolith-divider {
+            height: 1px;
+            background: linear-gradient(90deg, rgba(204, 34, 0, 1) 0%, rgba(144, 111, 104, 0.1) 100%);
+        }
 
-      <div class="nav__tools">
-        <button
-          class="toggle toggle--lang"
-          type="button"
-          aria-label="Cambiar idioma / Switch language"
-        >
-          <i class="ph-thin ph-globe"></i>
-          <span lang="es">EN</span><span lang="en">ES</span>
-        </button>
-        <button
-          class="toggle toggle--theme"
-          type="button"
-          aria-label="Cambiar tema / Toggle theme"
-        >
-          <span class="icon-sun"><i class="ph-thin ph-sun"></i></span>
-          <span class="icon-moon"><i class="ph-thin ph-moon"></i></span>
-        </button>
-      </div>
+        .mission-panel {
+            border-left: 1px solid rgba(204, 34, 0, 0.2);
+            padding-left: 24px;
+        }
+
+        /* i18n logic */
+        html[data-lang="es"] [lang="en"] { display: none !important; }
+        html[data-lang="en"] [lang="es"] { display: none !important; }
+
+        /* Streamline effect */
+        .streamline-reveal {
+            clip-path: inset(0 100% 0 0);
+            display: inline-block;
+        }
+        .streamline-animate {
+            animation: reveal-stream 1.5s cubic-bezier(0.2, 1, 0.3, 1) forwards;
+        }
+        @keyframes reveal-stream {
+            to { clip-path: inset(0 0 0 0); }
+        }
+
+        /* Active nav indicator */
+        .nav-link {
+            border-bottom: 2px solid transparent;
+        }
+        .nav-link.active {
+            border-bottom-color: #cc2200;
+            color: #cc2200;
+        }
+    </style>
+</head>
+<body class="font-body-md text-on-background min-h-screen selection:bg-primary selection:text-white transition-colors duration-300">
+    <!-- Top Navigation Bar -->
+    <header class="fixed top-0 w-full z-50 border-b border-outline/10 bg-background/90 backdrop-blur-md dark:bg-[#0c0c0c]/90">
+        <nav class="flex justify-between items-center px-margin-desktop h-[80px] w-full">
+            <div class="flex items-center gap-4">
+                <span class="material-symbols-outlined text-primary" data-icon="grid_view">grid_view</span>
+                <h1 class="font-headline-lg text-headline-lg font-bold tracking-tighter text-on-background">G. FIGUEROA</h1>
+            </div>
+            
+            <div class="hidden md:flex items-center space-x-12">
+                <a class="nav-link font-label-sm text-label-sm uppercase tracking-widest text-secondary hover:text-primary transition-colors py-1" href="#hero" data-section="hero">
+                    <span lang="en">INDEX</span><span lang="es">INICIO</span>
+                </a>
+                <a class="nav-link font-label-sm text-label-sm uppercase tracking-widest text-secondary hover:text-primary transition-colors py-1" href="#profile" data-section="profile">
+                    <span lang="en">ABOUT</span><span lang="es">SOBRE MÍ</span>
+                </a>
+                <a class="nav-link font-label-sm text-label-sm uppercase tracking-widest text-secondary hover:text-primary transition-colors py-1" href="#experience" data-section="experience">
+                    <span lang="en">EXPERIENCE</span><span lang="es">EXPERIENCIA</span>
+                </a>
+                <a class="nav-link font-label-sm text-label-sm uppercase tracking-widest text-secondary hover:text-primary transition-colors py-1" href="#skills" data-section="skills">
+                    <span lang="en">STACK</span><span lang="es">TECNOLOGÍAS</span>
+                </a>
+            </div>
+
+            <div class="flex items-center gap-4">
+                <!-- Theme Toggle -->
+                <button class="toggle--theme flex items-center justify-center w-10 h-10 border border-outline/20 text-secondary hover:text-on-background transition-colors dark:border-white/20" aria-label="Toggle theme">
+                    <span class="material-symbols-outlined dark:hidden" data-icon="light_mode">light_mode</span>
+                    <span class="material-symbols-outlined hidden dark:block" data-icon="dark_mode">dark_mode</span>
+                </button>
+                
+                <!-- Lang Toggle -->
+                <button class="toggle--lang px-3 h-10 border border-outline/20 font-label-sm text-[10px] uppercase text-secondary hover:text-on-background transition-colors dark:border-white/20" aria-label="Switch language">
+                    <span lang="en">EN</span><span lang="es">ES</span>
+                </button>
+
+                <a href="#contact" class="px-6 py-2 h-10 flex items-center bg-on-background text-background font-label-sm text-label-sm uppercase tracking-widest transition-all duration-300 hover:bg-primary dark:bg-white dark:text-black dark:hover:bg-primary dark:hover:text-white">
+                    <span lang="en">CONTACT</span><span lang="es">CONTACTO</span>
+                </a>
+            </div>
+        </nav>
     </header>
 
-    <main>
-      <!-- ============ HERO ============ -->
-      <section class="hero wrap" id="hero">
-        <span class="tag">[00] · INDEX</span>
-        <h1 class="hero__name">Germán<br />Figueroa</h1>
-        <p class="hero__role">Full Stack Developer</p>
-
-        <div class="hero__meta tech">
-          <span>9+ <span lang="es">años</span><span lang="en">years</span></span>
-          <span>React</span>
-          <span>Node.js</span>
-          <span>TypeScript</span>
+    <!-- Mission Control Stats -->
+    <aside class="hidden lg:flex fixed left-8 top-1/2 -translate-y-1/2 flex-col gap-8 opacity-40 z-40 pointer-events-none">
+        <div class="font-label-sm text-[10px] flex flex-col gap-1">
+            <span class="text-primary font-bold">LAT: 40.4168° N</span>
+            <span class="text-primary font-bold">LNG: 3.7038° W</span>
+            <span class="text-on-background">SYSTEM: OPERATIONAL</span>
         </div>
+        <div class="h-32 w-[1px] bg-outline/20"></div>
+    </aside>
 
-        <p class="hero__tagline body">
-          <span lang="es"
-            >Construyendo productos web con foco en React y prácticas de
-            desarrollo modernas.</span
-          >
-          <span lang="en"
-            >Building web products with focus on React and modern dev
-            practices.</span
-          >
-        </p>
-
-        <a class="hero__scroll" href="#about">
-          <span lang="es">Desplazar</span><span lang="en">Scroll</span>
-          <i class="ph-thin ph-arrow-down"></i>
-        </a>
-      </section>
-
-      <div class="section-divider" aria-hidden="true"></div>
-
-      <!-- ============ [01] ABOUT ============ -->
-      <section class="wrap" id="about">
-        <div class="section__head">
-          <p class="ref-label">[01] · <span lang="es">Sobre mí</span><span lang="en">About</span></p>
-          <h2 class="section__title">
-            <span lang="es">Perfil</span><span lang="en">Profile</span>
-          </h2>
+    <aside class="hidden lg:flex fixed right-8 top-1/2 -translate-y-1/2 flex-col items-end gap-8 opacity-40 z-40 pointer-events-none">
+        <div class="flex items-center gap-2">
+            <span class="font-label-sm text-[10px]">SYS-LINK</span>
+            <div class="w-3 h-3 rounded-full bg-primary hal-pulse"></div>
         </div>
+        <div class="h-32 w-[1px] bg-outline/20"></div>
+        <div class="font-label-sm text-[10px]" id="mission-clock">T-MINUS 00:00:00</div>
+    </aside>
 
-        <div class="about__grid">
-          <div class="about__bio body">
-            <p lang="es">
-              Developer Full Stack con
-              <span class="about__highlight">9+ años de experiencia</span>
-              construyendo aplicaciones web, con foco en React y desarrollo
-              backend con Node.js. También trabajo con Python cuando el proyecto
-              lo requiere. Me mantengo actualizado con prácticas de desarrollo
-              impulsadas por IA, usando automatización para mejorar la
-              eficiencia, sin perder la responsabilidad total sobre el producto.
-            </p>
-            <p lang="en">
-              Full Stack Developer with
-              <span class="about__highlight">9+ years of experience</span>
-              building web applications, with a strong focus on React and
-              occasional backend development using Node.js. I also work with
-              Python when the project requires it. I stay up to date with modern
-              AI-driven development practices, using automation and AI tools to
-              improve efficiency, while maintaining full ownership of the
-              implementation.
-            </p>
-          </div>
-
-          <div class="bracket highlights">
-            <div class="highlight">
-              <span class="highlight__num">9+</span>
-              <span class="highlight__label"
-                ><span lang="es">Años de experiencia</span
-                ><span lang="en">Years of experience</span></span
-              >
+    <main class="relative pt-[80px]">
+        <!-- [00] Hero Section -->
+        <section class="min-h-screen flex flex-col justify-center px-margin-desktop py-section-gap border-b border-outline/10" id="hero">
+            <div class="max-w-6xl w-full mx-auto relative">
+                <span class="absolute -top-12 left-0 font-label-sm text-label-sm text-outline">[00] · <span lang="en">INDEX</span><span lang="es">INICIO</span></span>
+                <h2 class="font-display-xl text-display-xl uppercase text-primary mb-4 leading-none streamline-reveal" id="hero-title">
+                    GERMÁN<br/>FIGUEROA
+                </h2>
+                <div class="flex flex-col md:flex-row md:items-end justify-between gap-12 mt-12">
+                    <div class="max-w-xl">
+                        <h3 class="font-headline-lg text-headline-lg uppercase mb-4 tracking-tighter streamline-reveal" id="hero-subtitle">
+                            <span lang="en">DESIGN ENGINEER / FULL STACK</span>
+                            <span lang="es">INGENIERO DE DISEÑO / FULL STACK</span>
+                        </h3>
+                        <p class="text-secondary font-body-md text-lg leading-relaxed streamline-reveal" id="hero-desc" style="animation-delay: 0.2s;">
+                            <span lang="en">Crafting high-precision digital interfaces where engineering meets aesthetic rigor. Specialized in React ecosystems, performance architecture, and design-led development.</span>
+                            <span lang="es">Creando interfaces digitales de alta precisión donde la ingeniería se encuentra con el rigor estético. Especializado en el ecosistema React, arquitectura de rendimiento y desarrollo centrado en el diseño.</span>
+                        </p>
+                    </div>
+                    <div class="grid grid-cols-2 gap-x-12 gap-y-4">
+                        <div class="border-l border-primary pl-4">
+                            <span class="block font-label-sm text-[10px] text-outline uppercase mb-1">
+                                <span lang="en">Experience</span><span lang="es">Experiencia</span>
+                            </span>
+                            <span class="font-label-numeric text-label-numeric">
+                                <span lang="en">9+ YEARS</span><span lang="es">9+ AÑOS</span>
+                            </span>
+                        </div>
+                        <div class="border-l border-primary pl-4">
+                            <span class="block font-label-sm text-[10px] text-outline uppercase mb-1">
+                                <span lang="en">Status</span><span lang="es">Estado</span>
+                            </span>
+                            <span class="font-label-numeric text-label-numeric">
+                                <span lang="en">AVAILABLE</span><span lang="es">DISPONIBLE</span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-24 animate-bounce">
+                    <span class="material-symbols-outlined text-outline text-3xl" data-icon="south">south</span>
+                </div>
             </div>
-            <div class="highlight">
-              <span class="highlight__num">05</span>
-              <span class="highlight__label"
-                ><span lang="es">Empresas</span><span lang="en">Companies</span></span
-              >
+        </section>
+
+        <!-- [01] Profile Section -->
+        <section class="px-margin-desktop py-section-gap bg-surface-container-lowest border-b border-outline/10" id="profile">
+            <div class="max-w-6xl w-auto mx-auto grid grid-cols-1 md:grid-cols-12 gap-12">
+                <div class="md:col-span-4 relative">
+                    <span class="font-label-sm text-label-sm text-outline mb-8 block">[01] · <span lang="en">PROFILE</span><span lang="es">PERFIL</span></span>
+                    <h2 class="font-headline-lg text-headline-lg uppercase mb-12">
+                        <span lang="en">MISSION<br/>STATEMENT</span>
+                        <span lang="es">DECLARACIÓN<br/>DE MISIÓN</span>
+                    </h2>
+                    <div class="w-full aspect-[4/5] grayscale hover:grayscale-0 transition-all duration-700 bg-surface-container overflow-hidden group">
+                        <img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" alt="Portrait" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBd4xuCpI3hIICRHu1bp8Z2Uo_s84vnO0UJv-U6PjyH95L22leLBnLPVpJM3P14EPxjdnCGp124D7v_Jo5ycWLFYNwIb1ISUBpYk7NFvBVICLPv4fR5A2w50F9t_TnCjLYs1ysBfBedBq6aIHqo4inn-0F2_p8z5JiY0BhKHQMH4AoSnFFqSaWC6ydIvMALmY4cPf5lkbaUAxLJbzWYJh9OeK2n6sec3clLd-l3Shx7ajdcS_Z9RUglcqex3cFvK0Rf9_bt6Kemt1s"/>
+                    </div>
+                </div>
+                <div class="md:col-span-8 flex flex-col justify-end">
+                    <div class="mission-panel">
+                        <p class="font-body-md text-2xl leading-relaxed text-on-background mb-8">
+                            <span lang="en">I bridge the gap between complex engineering systems and intuitive user experience. My work is defined by the same precision seen in technical aerospace documentation: functional, clear, and uncompromising in quality.</span>
+                            <span lang="es">Cierro la brecha entre sistemas de ingeniería complejos y la experiencia de usuario intuitiva. Mi trabajo se define por la misma precisión que se ve en la documentación técnica aeroespacial: funcional, claro y sin compromisos en calidad.</span>
+                        </p>
+                        <p class="font-body-md text-lg text-secondary mb-12 max-w-2xl">
+                            <span lang="en">With a career spanning over 9 years, I've led frontend architectures for international startups and established enterprises. I stay up to date with modern AI-driven development practices, using automation and AI tools to improve efficiency, while maintaining full ownership of the implementation.</span>
+                            <span lang="es">Con una carrera de más de 9 años, he liderado arquitecturas frontend para startups internacionales y empresas establecidas. Me mantengo actualizado con prácticas modernas de desarrollo impulsadas por IA, usando automatización para mejorar eficiencia, sin perder responsabilidad total sobre la implementación.</span>
+                        </p>
+                        <div class="grid grid-cols-3 gap-8">
+                            <div>
+                                <span class="block font-label-numeric text-primary text-3xl mb-1">05</span>
+                                <span class="font-label-sm text-[10px] text-outline uppercase">
+                                    <span lang="en">Global Companies</span><span lang="es">Empresas Globales</span>
+                                </span>
+                            </div>
+                            <div>
+                                <span class="block font-label-numeric text-primary text-3xl mb-1">∞</span>
+                                <span class="font-label-sm text-[10px] text-outline uppercase">
+                                    <span lang="en">React Focused</span><span lang="es">Enfoque en React</span>
+                                </span>
+                            </div>
+                            <div>
+                                <span class="block font-label-numeric text-primary text-3xl mb-1">01</span>
+                                <span class="font-label-sm text-[10px] text-outline uppercase">
+                                    <span lang="en">Design Philosophy</span><span lang="es">Filosofía de Diseño</span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="highlight">
-              <span class="highlight__num">∞</span>
-              <span class="highlight__label"
-                ><span lang="es">Foco en React</span
-                ><span lang="en">React focused</span></span
-              >
+        </section>
+
+        <!-- [02] Experience Section -->
+        <section class="px-margin-desktop py-section-gap border-b border-outline/10" id="experience">
+            <div class="max-w-6xl mx-auto">
+                <span class="font-label-sm text-label-sm text-outline mb-12 block">[02] · <span lang="en">TIMELINE</span><span lang="es">LÍNEA DE TIEMPO</span></span>
+                <div class="space-y-24">
+                    <!-- Experience Item 01 -->
+                    <div class="grid grid-cols-1 md:grid-cols-12 gap-8 group">
+                        <div class="md:col-span-3">
+                            <span class="font-label-numeric text-outline/40 text-4xl group-hover:text-primary transition-colors">2025</span>
+                            <div class="mt-2 h-[1px] w-full bg-outline/20 group-hover:bg-primary/50 transition-colors"></div>
+                            <span class="font-label-sm text-[10px] text-outline mt-2 block">
+                                <span lang="en">PRESENT</span><span lang="es">PRESENTE</span>
+                            </span>
+                        </div>
+                        <div class="md:col-span-9">
+                            <div class="flex items-center gap-4 mb-4">
+                                <h3 class="font-headline-lg text-headline-lg uppercase">GLOBANT</h3>
+                                <span class="px-2 py-0.5 border border-primary text-primary text-[10px] font-label-sm">
+                                    <span lang="en">LIVE</span><span lang="es">EN LÍNEA</span>
+                                </span>
+                            </div>
+                            <p class="font-label-sm text-primary mb-4">
+                                <span lang="en">SENIOR DESIGN ENGINEER • PHARMAMAR PROJECT</span>
+                                <span lang="es">INGENIERO DE DISEÑO SR • PROYECTO PHARMAMAR</span>
+                            </p>
+                            <p class="font-body-md text-secondary max-w-2xl">
+                                <span lang="en">Leading the frontend modernization of pharmaceutical research platforms. Implementing high-performance data visualization tools and maintaining a strict design system protocol.</span>
+                                <span lang="es">Liderando la modernización frontend de plataformas de investigación farmacéutica. Implementando herramientas de visualización de datos de alto rendimiento y manteniendo un estricto protocolo de sistema de diseño.</span>
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Experience Item 02 -->
+                    <div class="grid grid-cols-1 md:grid-cols-12 gap-8 group">
+                        <div class="md:col-span-3">
+                            <span class="font-label-numeric text-outline/40 text-4xl group-hover:text-primary transition-colors">2023</span>
+                            <div class="mt-2 h-[1px] w-full bg-outline/20 group-hover:bg-primary/50 transition-colors"></div>
+                            <span class="font-label-sm text-[10px] text-outline mt-2 block">2025</span>
+                        </div>
+                        <div class="md:col-span-9">
+                            <h3 class="font-headline-lg text-headline-lg uppercase mb-4">COMMAND ALKON</h3>
+                            <p class="font-label-sm text-primary mb-4">
+                                <span lang="en">FRONTEND ARCHITECT</span><span lang="es">ARQUITECTO FRONTEND</span>
+                            </p>
+                            <p class="font-body-md text-secondary max-w-2xl">
+                                <span lang="en">Scaled heavy-construction logistics software to a global audience. Focused on modular component libraries and micro-frontend orchestration using React and TypeScript.</span>
+                                <span lang="es">Escalé software de logística de construcción pesada para una audiencia global. Enfocado en bibliotecas de componentes modulares y orquestación de micro-frontends usando React y TypeScript.</span>
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Experience Item 03 -->
+                    <div class="grid grid-cols-1 md:grid-cols-12 gap-8 group">
+                        <div class="md:col-span-3">
+                            <span class="font-label-numeric text-outline/40 text-4xl group-hover:text-primary transition-colors">2021</span>
+                            <div class="mt-2 h-[1px] w-full bg-outline/20 group-hover:bg-primary/50 transition-colors"></div>
+                            <span class="font-label-sm text-[10px] text-outline mt-2 block">2023</span>
+                        </div>
+                        <div class="md:col-span-9">
+                            <h3 class="font-headline-lg text-headline-lg uppercase mb-4">SOYELLA / ELLA</h3>
+                            <p class="font-label-sm text-primary mb-4">
+                                <span lang="en">FULL STACK DEVELOPER</span><span lang="es">DESARROLLADOR FULL STACK</span>
+                            </p>
+                            <p class="font-body-md text-secondary max-w-2xl">
+                                <span lang="en">Developed core features for a female-focused social commerce platform. Utilized Next.js and Node.js to build rapid-growth infrastructure and seamless UI interactions.</span>
+                                <span lang="es">Desarrollé funciones principales para una plataforma de comercio social enfocada en mujeres. Utilicé Next.js y Node.js para construir infraestructura de rápido crecimiento e interacciones de UI fluidas.</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
-        </div>
-      </section>
+        </section>
 
-      <div class="section-divider" aria-hidden="true"></div>
-
-      <!-- ============ [02] EXPERIENCE ============ -->
-      <section class="wrap" id="experience">
-        <div class="section__head">
-          <p class="ref-label">[02] · <span lang="es">Experiencia</span><span lang="en">Experience</span></p>
-          <h2 class="section__title">Timeline</h2>
-        </div>
-
-        <ol class="timeline">
-          <li class="tl-item tl-item--current">
-            <div class="tl-item__head">
-              <span class="tl-item__company">
-                <img class="tl-item__logo tl-item__logo--dark-lighten" src="logos/Globant_Logo.svg" alt="Globant" />
-                <span class="badge">Present</span>
-              </span>
-              <time class="tl-item__period">Nov 2025 — <span lang="es">Presente</span><span lang="en">Present</span></time>
+        <!-- [03] Skills Section -->
+        <section class="px-margin-desktop py-section-gap bg-surface-container" id="skills">
+            <div class="max-w-6xl mx-auto">
+                <span class="font-label-sm text-label-sm text-outline mb-12 block">[03] · <span lang="en">STACK</span><span lang="es">TECNOLOGÍAS</span></span>
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-12">
+                    <div class="space-y-6">
+                        <h4 class="font-label-sm text-label-sm text-primary uppercase tracking-widest border-b border-primary pb-2">Frontend</h4>
+                        <ul class="space-y-4 font-body-md text-on-background">
+                            <li class="flex justify-between items-center group"><span>React / Next.js</span><span class="w-1.5 h-1.5 bg-primary rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></span></li>
+                            <li class="flex justify-between items-center group"><span>TypeScript</span><span class="w-1.5 h-1.5 bg-primary rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></span></li>
+                            <li class="flex justify-between items-center group"><span>Tailwind CSS</span><span class="w-1.5 h-1.5 bg-primary rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></span></li>
+                            <li class="flex justify-between items-center group"><span>Framer Motion</span><span class="w-1.5 h-1.5 bg-primary rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></span></li>
+                        </ul>
+                    </div>
+                    <div class="space-y-6">
+                        <h4 class="font-label-sm text-label-sm text-primary uppercase tracking-widest border-b border-primary pb-2">Backend</h4>
+                        <ul class="space-y-4 font-body-md text-on-background">
+                            <li class="flex justify-between items-center group"><span>Node.js</span><span class="w-1.5 h-1.5 bg-primary rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></span></li>
+                            <li class="flex justify-between items-center group"><span>PostgreSQL</span><span class="w-1.5 h-1.5 bg-primary rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></span></li>
+                            <li class="flex justify-between items-center group"><span>REST / GraphQL</span><span class="w-1.5 h-1.5 bg-primary rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></span></li>
+                            <li class="flex justify-between items-center group"><span>Redis</span><span class="w-1.5 h-1.5 bg-primary rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></span></li>
+                        </ul>
+                    </div>
+                    <div class="space-y-6">
+                        <h4 class="font-label-sm text-label-sm text-primary uppercase tracking-widest border-b border-primary pb-2"><span lang="en">Process</span><span lang="es">Proceso</span></h4>
+                        <ul class="space-y-4 font-body-md text-on-background">
+                            <li class="flex justify-between items-center group"><span>Git / GitHub</span><span class="w-1.5 h-1.5 bg-primary rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></span></li>
+                            <li class="flex justify-between items-center group"><span>Docker</span><span class="w-1.5 h-1.5 bg-primary rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></span></li>
+                            <li class="flex justify-between items-center group"><span>CI/CD Pipelines</span><span class="w-1.5 h-1.5 bg-primary rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></span></li>
+                            <li class="flex justify-between items-center group"><span>Agile / Scrum</span><span class="w-1.5 h-1.5 bg-primary rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></span></li>
+                        </ul>
+                    </div>
+                    <div class="space-y-6">
+                        <h4 class="font-label-sm text-label-sm text-primary uppercase tracking-widest border-b border-primary pb-2"><span lang="en">Design</span><span lang="es">Diseño</span></h4>
+                        <ul class="space-y-4 font-body-md text-on-background">
+                            <li class="flex justify-between items-center group"><span>Figma Mastery</span><span class="w-1.5 h-1.5 bg-primary rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></span></li>
+                            <li class="flex justify-between items-center group"><span>Design Systems</span><span class="w-1.5 h-1.5 bg-primary rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></span></li>
+                            <li class="flex justify-between items-center group"><span>Prototyping</span><span class="w-1.5 h-1.5 bg-primary rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></span></li>
+                            <li class="flex justify-between items-center group"><span>Motion Design</span><span class="w-1.5 h-1.5 bg-primary rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></span></li>
+                        </ul>
+                    </div>
+                </div>
             </div>
-            <p class="tl-item__role">
-              Frontend Developer · <span class="client">PharmaMar</span>
-              <img class="tl-item__logo tl-item__logo--color" src="logos/Pharma_Mar_logo.svg" alt="PharmaMar" style="height:28px;margin-left:0.5rem;vertical-align:middle;" />
-            </p>
-          </li>
+        </section>
 
-          <li class="tl-item">
-            <div class="tl-item__head">
-              <span class="tl-item__company">
-                <img class="tl-item__logo tl-item__logo--badge" src="logos/valere.jpg" alt="Valere" />
-              </span>
-              <time class="tl-item__period">Jun 2025 — May 2026</time>
+        <!-- [04] Contact Section -->
+        <section class="px-margin-desktop py-section-gap relative overflow-hidden" id="contact">
+            <div class="max-w-6xl mx-auto relative z-10">
+                <span class="font-label-sm text-label-sm text-outline mb-12 block">[04] · <span lang="en">CONTACT</span><span lang="es">CONTACTO</span></span>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-24 items-center">
+                    <div>
+                        <h2 class="font-display-xl text-7xl uppercase mb-8 leading-none text-on-background">
+                            <span lang="en">INITIATE<br/>COMMUNICATION</span>
+                            <span lang="es">INICIAR<br/>COMUNICACIÓN</span>
+                        </h2>
+                        <p class="font-body-md text-lg text-secondary mb-12">
+                            <span lang="en">Ready for the next mission. Whether it's a revolutionary startup or a complex enterprise transformation, let's build something monumental.</span>
+                            <span lang="es">Listo para la siguiente misión. Ya sea una startup revolucionaria o una transformación empresarial compleja, construyamos algo monumental.</span>
+                        </p>
+                        <div class="space-y-4">
+                            <a class="group flex items-center gap-4 text-2xl font-label-numeric text-primary" href="mailto:geerman.figueroa@gmail.com">
+                                <span class="material-symbols-outlined" data-icon="mail">mail</span>
+                                <span>GEERMAN.FIGUEROA@GMAIL.COM</span>
+                                <span class="material-symbols-outlined opacity-0 group-hover:opacity-100 -translate-x-4 group-hover:translate-x-0 transition-all" data-icon="arrow_forward">arrow_forward</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="border border-outline/20 p-8 bg-surface-container-lowest/50 backdrop-blur-sm">
+                        <div class="flex items-center gap-2 mb-6">
+                            <span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+                            <span class="font-label-sm text-[10px] uppercase">
+                                <span lang="en">Encrypted Connection Active</span><span lang="es">Conexión Encriptada Activa</span>
+                            </span>
+                        </div>
+                        <form class="space-y-6" onsubmit="event.preventDefault()">
+                            <div class="space-y-1">
+                                <label class="font-label-sm text-[10px] uppercase text-outline">
+                                    <span lang="en">Ident_Name</span><span lang="es">Nombre_Ident</span>
+                                </label>
+                                <input class="w-full bg-transparent border-b border-outline/30 py-2 focus:border-primary focus:ring-0 outline-none font-body-md" placeholder="John Doe" type="text"/>
+                            </div>
+                            <div class="space-y-1">
+                                <label class="font-label-sm text-[10px] uppercase text-outline">
+                                    <span lang="en">Comm_Link</span><span lang="es">Enlace_Com</span>
+                                </label>
+                                <input class="w-full bg-transparent border-b border-outline/30 py-2 focus:border-primary focus:ring-0 outline-none font-body-md" placeholder="email@address.com" type="email"/>
+                            </div>
+                            <div class="space-y-1">
+                                <label class="font-label-sm text-[10px] uppercase text-outline">
+                                    <span lang="en">Message_Payload</span><span lang="es">Carga_Mensaje</span>
+                                </label>
+                                <textarea class="w-full bg-transparent border-b border-outline/30 py-2 focus:border-primary focus:ring-0 outline-none font-body-md resize-none" placeholder="..." rows="4"></textarea>
+                            </div>
+                            <button class="w-full py-4 bg-primary text-white font-label-sm uppercase tracking-widest hover:bg-on-background transition-colors dark:hover:bg-white dark:hover:text-black" type="submit">
+                                <span lang="en">SEND TRANSMISSION</span><span lang="es">ENVIAR TRANSMISIÓN</span>
+                            </button>
+                        </form>
+                    </div>
+                </div>
             </div>
-            <p class="tl-item__role">
-              Frontend Developer · <span class="client">SoyElla / ELLA</span>
-            </p>
-          </li>
-
-          <li class="tl-item">
-            <div class="tl-item__head">
-              <span class="tl-item__company">
-                <img class="tl-item__logo tl-item__logo--color" src="logos/Command Alkon.svg" alt="Command Alkon" />
-              </span>
-              <time class="tl-item__period">Oct 2023 — Nov 2025</time>
+            <!-- Atmospheric BG Element -->
+            <div class="absolute bottom-0 right-0 opacity-5 -mb-24 -mr-24 pointer-events-none">
+                <span class="font-display-xl text-[400px] leading-none uppercase">GER</span>
             </div>
-            <p class="tl-item__role">Frontend Developer</p>
-          </li>
-
-          <li class="tl-item">
-            <div class="tl-item__head">
-              <span class="tl-item__company">
-                <img class="tl-item__logo tl-item__logo--white-bg" src="logos/logo-ort-argentina.png" alt="ORT Argentina" />
-              </span>
-              <time class="tl-item__period">Jan 2019 — Oct 2023</time>
-            </div>
-            <p class="tl-item__role">
-              Full Stack Developer · <span class="client">Campus Virtual</span>
-            </p>
-          </li>
-
-          <li class="tl-item">
-            <div class="tl-item__head">
-              <span class="tl-item__company">REA</span>
-              <time class="tl-item__period">Jan 2019 — Jan 2024</time>
-            </div>
-            <p class="tl-item__role">Full Stack Developer</p>
-          </li>
-        </ol>
-      </section>
-
-      <div class="section-divider" aria-hidden="true"></div>
-
-      <!-- ============ [03] STACK ============ -->
-      <section class="wrap" id="stack">
-        <div class="section__head">
-          <p class="ref-label">[03] · Stack</p>
-          <h2 class="section__title">
-            <span lang="es">Tecnologías</span><span lang="en">Skills</span>
-          </h2>
-        </div>
-
-        <div class="stack__grid">
-          <div class="stack-card">
-            <h3 class="stack-card__title">
-              <i class="ph-thin ph-browser"></i> Frontend
-            </h3>
-            <div class="chips">
-              <span class="chip">React.js</span>
-              <span class="chip">Next.js</span>
-              <span class="chip">TypeScript</span>
-              <span class="chip">Redux</span>
-              <span class="chip">Emotion</span>
-              <span class="chip">Material UI</span>
-              <span class="chip">Chakra UI</span>
-              <span class="chip">Figma</span>
-            </div>
-          </div>
-
-          <div class="stack-card">
-            <h3 class="stack-card__title">
-              <i class="ph-thin ph-stack"></i> Backend
-            </h3>
-            <div class="chips">
-              <span class="chip">Node.js</span>
-              <span class="chip">Express.js</span>
-              <span class="chip">PHP</span>
-              <span class="chip">Laravel</span>
-              <span class="chip">PostgreSQL</span>
-            </div>
-          </div>
-
-          <div class="stack-card">
-            <h3 class="stack-card__title">
-              <i class="ph-thin ph-wrench"></i>
-              <span lang="es">Herramientas</span><span lang="en">Tools &amp; Practices</span>
-            </h3>
-            <div class="chips">
-              <span class="chip">GitHub</span>
-              <span class="chip">Jest</span>
-              <span class="chip">OpenTelemetry</span>
-              <span class="chip">Agile / Scrum</span>
-              <span class="chip">AI-assisted dev</span>
-            </div>
-          </div>
-
-          <div class="stack-card">
-            <h3 class="stack-card__title">
-              <i class="ph-thin ph-translate"></i>
-              <span lang="es">Idiomas</span><span lang="en">Languages</span>
-            </h3>
-            <div class="chips">
-              <span class="chip"
-                ><span lang="es">Español (nativo)</span
-                ><span lang="en">Spanish (native)</span></span
-              >
-              <span class="chip"
-                ><span lang="es">Inglés (avanzado)</span
-                ><span lang="en">English (advanced)</span></span
-              >
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <div class="section-divider" aria-hidden="true"></div>
-
-      <!-- ============ [04] CONTACT ============ -->
-      <section class="wrap" id="contact">
-        <div class="section__head">
-          <p class="ref-label">[04] · <span lang="es">Contacto</span><span lang="en">Contact</span></p>
-          <h2 class="section__title">
-            <span lang="es">Hablemos</span><span lang="en">Get in touch</span>
-          </h2>
-        </div>
-
-        <div class="contact__grid">
-          <a class="contact-cell" href="mailto:geerman.figueroa@gmail.com">
-            <i class="ph-thin ph-envelope"></i>
-            <span>
-              <span class="contact-cell__label">Email</span>
-              <span class="contact-cell__value">geerman.figueroa@gmail.com</span>
-            </span>
-          </a>
-          <a class="contact-cell" href="https://github.com/Bangalger" aria-label="GitHub">
-            <i class="ph-thin ph-github-logo"></i>
-            <span>
-              <span class="contact-cell__label">GitHub</span>
-              <span class="contact-cell__value">Bangalger</span>
-            </span>
-          </a>
-          <a class="contact-cell" href="https://www.linkedin.com/in/german-figueroa-27254490/" aria-label="LinkedIn">
-            <i class="ph-thin ph-linkedin-logo"></i>
-            <span>
-              <span class="contact-cell__label">LinkedIn</span>
-              <span class="contact-cell__value">German Figueroa</span>
-            </span>
-          </a>
-        </div>
-      </section>
+        </section>
     </main>
 
-    <!-- ============ FOOTER ============ -->
-    <footer class="footer">
-      <span>© 2026 Germán Figueroa</span>
-      <span>Full Stack Developer · React / Node.js</span>
-      <span>[ EOF ]</span>
+    <!-- Footer -->
+    <footer class="bg-surface-container-lowest border-t border-outline/10">
+        <div class="flex flex-col md:flex-row justify-between items-center px-margin-desktop py-gutter w-full">
+            <div class="flex items-center gap-4">
+                <span class="font-label-sm text-label-sm font-bold text-on-surface">© 2026 GERMÁN FIGUEROA</span>
+                <span class="hidden md:inline h-4 w-[1px] bg-outline/20"></span>
+                <span class="font-label-sm text-[10px] text-outline uppercase tracking-widest">
+                    <span lang="en">Full Stack Developer</span><span lang="es">Desarrollador Full Stack</span>
+                </span>
+            </div>
+            
+            <div class="hidden md:block font-label-sm text-[10px] text-outline">
+                [ <span lang="en">MISSION CONTROL STATUS: V1.0.4-STABLE</span><span lang="es">ESTADO DE CONTROL DE MISIÓN: V1.0.4-ESTABLE</span> ]
+            </div>
+        </div>
     </footer>
 
     <script src="js/ui.js"></script>
-  </body>
+</body>
 </html>
