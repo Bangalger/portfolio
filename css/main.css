@@ -30,6 +30,25 @@ body {
 .dark .border-outline\/30 { border-color: rgba(255,255,255,0.25); }
 .dark .text-outline { color: rgba(255,255,255,0.6); }
 
+/* Project cards: hover blanco visible (light y dark) */
+#projects .project-card {
+    background-color: #efeeeb;
+    transition: background-color 0.5s ease, color 0.35s ease;
+}
+#projects .project-card:hover {
+    background-color: #ffffff;
+}
+.dark #projects .project-card {
+    background-color: #000000;
+}
+.dark #projects .project-card:hover {
+    background-color: #ffffff;
+    color: #1b1c1a;
+}
+.dark #projects .project-card:hover .text-secondary {
+    color: #5f5e5e;
+}
+
 .material-symbols-outlined {
     font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
     vertical-align: middle;
