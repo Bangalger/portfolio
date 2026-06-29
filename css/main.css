@@ -35,6 +35,20 @@ body {
     vertical-align: middle;
 }
 
+/* Theme toggle: un solo ícono visible (luna en claro, sol en oscuro) */
+.toggle--theme [data-icon="dark_mode"] {
+    display: inline-flex;
+}
+.toggle--theme [data-icon="light_mode"] {
+    display: none;
+}
+.dark .toggle--theme [data-icon="dark_mode"] {
+    display: none;
+}
+.dark .toggle--theme [data-icon="light_mode"] {
+    display: inline-flex;
+}
+
 .hal-pulse {
     animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
