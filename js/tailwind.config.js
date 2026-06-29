@@ -81,6 +81,9 @@ tailwind.config = {
                 "label-numeric": ["24px", { "lineHeight": "24px", "fontWeight": "600" }],
                 "headline-lg": ["32px", { "lineHeight": "40px", "fontWeight": "700" }],
                 "display-xl-mobile": ["48px", { "lineHeight": "52px", "letterSpacing": "-0.02em", "fontWeight": "800" }]
+            },
+            "animation": {
+                "spin-slow": "spin 8s linear infinite"
             }
         },
     },
