@@ -245,9 +245,8 @@
         }
     }
 
-    // ---- Reveal: ocultamos el preloader cuando fuentes + recursos están listos ----
-    // Esto evita el destello con tipografía por defecto (FOUC) y deja que el tipeo
-    // del hero arranque recién cuando el contenido ya es visible.
+    // ---- Reveal: ocultamos el preloader cuando las fuentes están listas ----
+    // El contenido permanece pintado debajo (mejor LCP); el preloader solo lo cubre visualmente.
     const ICON_FONT = '400 24px "Material Symbols Outlined"';
 
     function waitForIconFont() {
@@ -260,31 +259,23 @@
     function reveal() {
         if (revealed) return;
         revealed = true;
-        root.classList.remove('is-loading');
         root.classList.add('loaded');
         const preloader = document.getElementById('preloader');
         if (preloader) {
             setTimeout(() => preloader.remove(), 650);
         }
-        renderStreaming(true);
+        // Texto completo de inmediato (sin typewriter) para un LCP estable.
+        renderStreaming(false);
     }
 
     const fontsReady = (document.fonts && document.fonts.ready)
         ? document.fonts.ready
         : Promise.resolve();
 
-    const windowLoaded = new Promise((resolve) => {
-        if (document.readyState === 'complete') {
-            resolve();
-        } else {
-            window.addEventListener('load', resolve, { once: true });
-        }
-    });
-
-    // La página se revela cuando todo carga (o tras el failsafe).
+    // Revela en cuanto las fuentes cargan, con failsafe corto (no espera window.load).
     Promise.race([
-        Promise.all([fontsReady, windowLoaded]),
-        new Promise((resolve) => setTimeout(resolve, 3500))
+        fontsReady,
+        new Promise((resolve) => setTimeout(resolve, 1200))
     ]).then(reveal);
 
     // Los iconos solo aparecen cuando Material Symbols está lista — sin timeout.

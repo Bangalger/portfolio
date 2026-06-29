@@ -37,6 +37,10 @@
     <!-- Theme -->
     <meta name="theme-color" content="#0c0c0c" />
 
+    <!-- Conexión anticipada a fuentes (reduce latencia de red). -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
     <!-- Aplica tema/idioma ANTES del primer pintado para evitar el destello blanco. -->
     <script>
         (function () {
@@ -50,7 +54,6 @@
                 document.documentElement.dataset.lang =
                     savedLang || (navigator.language.indexOf("es") === 0 ? "es" : "en");
             } catch (e) {}
-            document.documentElement.classList.add("is-loading");
         })();
     </script>
 
@@ -94,36 +97,33 @@
         html.icons-ready .material-symbols-outlined {
             visibility: visible;
         }
-        /* Mantiene el contenido oculto hasta que el JS esté listo (failsafe anti-FOUC). */
-        html.is-loading body > main,
-        html.is-loading body > header,
-        html.is-loading body > footer { opacity: 0; }
-        html.loaded body > main,
-        html.loaded body > header,
-        html.loaded body > footer {
-            opacity: 1;
-            transition: opacity 0.5s ease;
-        }
         @media (prefers-reduced-motion: reduce) {
-            #preloader,
-            html.loaded body > main,
-            html.loaded body > header,
-            html.loaded body > footer { transition: none; }
+            #preloader { transition: none; }
             #preloader .preloader-spinner { animation: none; }
         }
     </style>
 
-    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <script src="js/tailwind.config.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Anybody:wght@100..900&family=Inter:wght@100..900&family=JetBrains+Mono:wght@100..800&display=swap" rel="stylesheet"/>
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&display=block" rel="stylesheet"/>
-    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/tailwind.css" />
+    <link rel="stylesheet" href="css/main.css" />
+    <!-- Solo los pesos usados en el diseño (menos KB que rangos completos). -->
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Anybody:wght@600;700;800&amp;family=Inter:wght@400&amp;family=JetBrains+Mono:wght@500&amp;display=swap" />
+    <link href="https://fonts.googleapis.com/css2?family=Anybody:wght@600;700;800&amp;family=Inter:wght@400&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Anybody:wght@600;700;800&amp;family=Inter:wght@400&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet" /></noscript>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&amp;display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&amp;display=swap" rel="stylesheet" /></noscript>
 
-    <!-- Vercel Analytics -->
+    <!-- Vercel Analytics (solo en producción) -->
     <script>
-        window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+        (function () {
+            var host = location.hostname;
+            if (host !== "germanfigueroa.space" && !host.endsWith(".vercel.app")) return;
+            window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+            var s = document.createElement("script");
+            s.defer = true;
+            s.src = "/_vercel/insights/script.js";
+            document.head.appendChild(s);
+        })();
     </script>
-    <script defer src="/_vercel/insights/script.js"></script>
 </head>
 <body class="font-body-md text-on-background min-h-screen selection:bg-primary selection:text-white transition-colors duration-300">
     <!-- Preloader: cubre la pantalla hasta que cargan fuentes y estilos. -->
@@ -298,7 +298,10 @@
                         <span lang="es">DECLARACIÓN<br/>DE MISIÓN</span>
                     </h2>
                     <div class="w-full aspect-[4/5] grayscale hover:grayscale-0 transition-all duration-700 bg-surface-container overflow-hidden group">
-                        <img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" alt="Germán Figueroa" src="assets/perfil.jpeg"/>
+                        <picture>
+                            <source srcset="assets/perfil.webp" type="image/webp" />
+                            <img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" alt="Germán Figueroa" src="assets/perfil.jpeg" width="800" height="904" loading="lazy" decoding="async" />
+                        </picture>
                     </div>
                 </div>
                 <div class="md:col-span-8 flex flex-col justify-end">
@@ -544,7 +547,7 @@
                 <span class="font-label-sm text-label-sm text-outline mb-12 block">[05] · <span lang="en">CONTACT</span><span lang="es">CONTACTO</span></span>
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-center">
                     <div>
-                        <h2 class="font-display-xl text-5xl lg:text-7xl uppercase mb-8 leading-none text-on-background break-words">
+                        <h2 class="font-display-xl text-4xl sm:text-5xl lg:text-6xl uppercase mb-8 leading-none text-on-background break-words">
                             <span lang="en">INITIATE<br/>COMMUNICATION</span>
                             <span lang="es">INICIAR<br/>COMUNICACIÓN</span>
                         </h2>
