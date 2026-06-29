@@ -250,4 +250,67 @@
     } else {
         renderStreaming(true);
     }
+
+    // ---- Formspree AJAX Submission ----
+    const contactForm = document.getElementById('contact-form');
+    const contactStatus = document.getElementById('contact-status');
+    const contactSubmitBtn = document.getElementById('contact-submit-btn');
+
+    if (contactForm && contactStatus && contactSubmitBtn) {
+        contactForm.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            // UI state: sending
+            const btnTexts = contactSubmitBtn.querySelectorAll('.btn-text');
+            const originalBtnTexts = [];
+            btnTexts.forEach(span => {
+                originalBtnTexts.push({ span, html: span.innerHTML });
+                if(span.getAttribute('lang') === 'en') {
+                    span.innerHTML = 'TRANSMITTING...';
+                } else if (span.getAttribute('lang') === 'es') {
+                    span.innerHTML = 'TRANSMITIENDO...';
+                }
+            });
+            contactSubmitBtn.disabled = true;
+            contactStatus.classList.add('hidden');
+
+            const formData = new FormData(contactForm);
+            
+            try {
+                const response = await fetch('https://formspree.io/f/xvzjqoey', {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
+
+                if (response.ok) {
+                    contactForm.reset();
+                    contactStatus.innerHTML = '<span lang="en">TRANSMISSION SENT SUCCESSFULLY</span><span lang="es">TRANSMISIÓN ENVIADA CON ÉXITO</span>';
+                    contactStatus.classList.remove('hidden', 'text-red-500');
+                    contactStatus.classList.add('text-primary');
+                } else {
+                    const data = await response.json();
+                    let errMsg = 'ERROR';
+                    if (Object.hasOwn(data, 'errors')) {
+                        errMsg = data.errors.map(error => error.message).join(', ');
+                    }
+                    contactStatus.textContent = 'ERROR: ' + errMsg;
+                    contactStatus.classList.remove('hidden', 'text-primary');
+                    contactStatus.classList.add('text-red-500');
+                }
+            } catch (error) {
+                contactStatus.textContent = 'SYSTEM FAILURE: UNABLE TO TRANSMIT';
+                contactStatus.classList.remove('hidden', 'text-primary');
+                contactStatus.classList.add('text-red-500');
+            }
+
+            // Restore UI state
+            contactSubmitBtn.disabled = false;
+            originalBtnTexts.forEach(item => {
+                item.span.innerHTML = item.html;
+            });
+        });
+    }
 })();
