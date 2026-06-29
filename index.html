@@ -158,6 +158,10 @@
         html[data-lang="es"] [lang="en"] { display: none !important; }
         html[data-lang="en"] [lang="es"] { display: none !important; }
 
+        /* Smooth language transition (cinematic fade) */
+        main { transition: opacity 0.4s ease; }
+        main.lang-switching { opacity: 0; }
+
         /* Streamline effect */
         .streamline-reveal {
             clip-path: inset(0 100% 0 0);
@@ -168,6 +172,20 @@
         }
         @keyframes reveal-stream {
             to { clip-path: inset(0 0 0 0); }
+        }
+
+        /* Streaming (typewriter) effect */
+        .streaming-text { min-height: 1em; }
+        .stream-cursor {
+            display: inline-block;
+            width: 0.6ch;
+            color: #cc2200;
+            font-weight: 400;
+            animation: stream-blink 0.9s steps(1) infinite;
+        }
+        @keyframes stream-blink {
+            0%, 50% { opacity: 1; }
+            50.01%, 100% { opacity: 0; }
         }
 
         /* Active nav indicator */
@@ -183,10 +201,10 @@
 <body class="font-body-md text-on-background min-h-screen selection:bg-primary selection:text-white transition-colors duration-300">
     <!-- Top Navigation Bar -->
     <header class="fixed top-0 w-full z-50 border-b border-outline/10 bg-background/90 backdrop-blur-md dark:bg-[#0c0c0c]/90">
-        <nav class="flex justify-between items-center px-margin-desktop h-[80px] w-full">
+        <nav class="flex justify-between items-center px-6 md:px-margin-desktop h-[80px] w-full">
             <div class="flex items-center gap-4">
                 <span class="material-symbols-outlined text-primary" data-icon="grid_view">grid_view</span>
-                <h1 class="font-headline-lg text-headline-lg font-bold tracking-tighter text-on-background">G. FIGUEROA</h1>
+                <h1 class="font-headline-lg text-2xl md:text-headline-lg font-bold tracking-tighter text-on-background">G. FIGUEROA</h1>
             </div>
             
             <div class="hidden md:flex items-center space-x-12">
@@ -204,7 +222,7 @@
                 </a>
             </div>
 
-            <div class="flex items-center gap-4">
+            <div class="hidden md:flex items-center gap-4">
                 <!-- Theme Toggle -->
                 <button class="toggle--theme flex items-center justify-center w-10 h-10 border border-outline/20 text-secondary hover:text-on-background transition-colors dark:border-white/20" aria-label="Toggle theme">
                     <span class="material-symbols-outlined dark:hidden" data-icon="light_mode">light_mode</span>
@@ -220,7 +238,47 @@
                     <span lang="en">CONTACT</span><span lang="es">CONTACTO</span>
                 </a>
             </div>
+
+            <!-- Mobile hamburger -->
+            <button id="mobile-menu-btn" class="md:hidden flex items-center justify-center w-10 h-10 border border-outline/20 text-on-background dark:border-white/20" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobile-menu">
+                <span class="material-symbols-outlined" id="mobile-menu-icon" data-icon="menu">menu</span>
+            </button>
         </nav>
+
+        <!-- Mobile menu panel -->
+        <div id="mobile-menu" class="hidden md:hidden border-t border-outline/10 bg-background dark:bg-[#0c0c0c] px-6 py-8">
+            <div class="flex flex-col gap-6">
+                <a class="nav-link mobile-link font-label-sm text-base uppercase tracking-widest text-secondary hover:text-primary transition-colors" href="#hero" data-section="hero">
+                    <span lang="en">INDEX</span><span lang="es">INICIO</span>
+                </a>
+                <a class="nav-link mobile-link font-label-sm text-base uppercase tracking-widest text-secondary hover:text-primary transition-colors" href="#profile" data-section="profile">
+                    <span lang="en">ABOUT</span><span lang="es">SOBRE MÍ</span>
+                </a>
+                <a class="nav-link mobile-link font-label-sm text-base uppercase tracking-widest text-secondary hover:text-primary transition-colors" href="#experience" data-section="experience">
+                    <span lang="en">EXPERIENCE</span><span lang="es">EXPERIENCIA</span>
+                </a>
+                <a class="nav-link mobile-link font-label-sm text-base uppercase tracking-widest text-secondary hover:text-primary transition-colors" href="#skills" data-section="skills">
+                    <span lang="en">STACK</span><span lang="es">TECNOLOGÍAS</span>
+                </a>
+
+                <div class="flex items-center gap-4 pt-6 border-t border-outline/10">
+                    <!-- Theme Toggle -->
+                    <button class="toggle--theme flex items-center justify-center w-10 h-10 border border-outline/20 text-secondary hover:text-on-background transition-colors dark:border-white/20" aria-label="Toggle theme">
+                        <span class="material-symbols-outlined dark:hidden" data-icon="light_mode">light_mode</span>
+                        <span class="material-symbols-outlined hidden dark:block" data-icon="dark_mode">dark_mode</span>
+                    </button>
+
+                    <!-- Lang Toggle -->
+                    <button class="toggle--lang px-3 h-10 border border-outline/20 font-label-sm text-[10px] uppercase text-secondary hover:text-on-background transition-colors dark:border-white/20" aria-label="Switch language">
+                        <span lang="en">EN</span><span lang="es">ES</span>
+                    </button>
+
+                    <a href="#contact" class="mobile-link flex-1 px-6 py-2 h-10 flex items-center justify-center bg-on-background text-background font-label-sm text-label-sm uppercase tracking-widest transition-all duration-300 hover:bg-primary dark:bg-white dark:text-black dark:hover:bg-primary dark:hover:text-white">
+                        <span lang="en">CONTACT</span><span lang="es">CONTACTO</span>
+                    </a>
+                </div>
+            </div>
+        </div>
     </header>
 
     <!-- Mission Control Stats -->
@@ -244,19 +302,19 @@
 
     <main class="relative pt-[80px]">
         <!-- [00] Hero Section -->
-        <section class="min-h-screen flex flex-col justify-center px-margin-desktop py-section-gap border-b border-outline/10" id="hero">
+        <section class="min-h-screen flex flex-col justify-center px-6 md:px-margin-desktop py-32 md:py-section-gap border-b border-outline/10" id="hero">
             <div class="max-w-6xl w-full mx-auto relative">
                 <span class="absolute -top-12 left-0 font-label-sm text-label-sm text-outline">[00] · <span lang="en">INDEX</span><span lang="es">INICIO</span></span>
-                <h2 class="font-display-xl text-display-xl uppercase text-primary mb-4 leading-none streamline-reveal" id="hero-title">
+                <h2 class="font-display-xl text-display-xl-mobile md:text-display-xl uppercase text-primary mb-4 leading-none streaming-text" id="hero-title">
                     GERMÁN<br/>FIGUEROA
                 </h2>
                 <div class="flex flex-col md:flex-row md:items-end justify-between gap-12 mt-12">
                     <div class="max-w-xl">
-                        <h3 class="font-headline-lg text-headline-lg uppercase mb-4 tracking-tighter streamline-reveal" id="hero-subtitle">
+                        <h3 class="font-headline-lg text-2xl md:text-headline-lg uppercase mb-4 tracking-tighter streaming-text" id="hero-subtitle">
                             <span lang="en">DESIGN ENGINEER / FULL STACK</span>
                             <span lang="es">INGENIERO DE DISEÑO / FULL STACK</span>
                         </h3>
-                        <p class="text-secondary font-body-md text-lg leading-relaxed streamline-reveal" id="hero-desc" style="animation-delay: 0.2s;">
+                        <p class="text-secondary font-body-md text-lg leading-relaxed streaming-text" id="hero-desc">
                             <span lang="en">Crafting high-precision digital interfaces where engineering meets aesthetic rigor. Specialized in React ecosystems, performance architecture, and design-led development.</span>
                             <span lang="es">Creando interfaces digitales de alta precisión donde la ingeniería se encuentra con el rigor estético. Especializado en el ecosistema React, arquitectura de rendimiento y desarrollo centrado en el diseño.</span>
                         </p>
@@ -280,14 +338,14 @@
                         </div>
                     </div>
                 </div>
-                <div class="mt-24 animate-bounce">
-                    <span class="material-symbols-outlined text-outline text-3xl" data-icon="south">south</span>
-                </div>
+                <a href="#profile" class="cursor-pointer inline-block mt-24 animate-bounce text-outline hover:text-primary transition-colors" aria-label="Scroll to profile">
+                    <span class="material-symbols-outlined text-3xl" data-icon="south">south</span>
+                </a>
             </div>
         </section>
 
         <!-- [01] Profile Section -->
-        <section class="px-margin-desktop py-section-gap bg-surface-container-lowest border-b border-outline/10" id="profile">
+        <section class="px-6 md:px-margin-desktop py-24 md:py-section-gap bg-surface-container-lowest border-b border-outline/10" id="profile">
             <div class="max-w-6xl w-auto mx-auto grid grid-cols-1 md:grid-cols-12 gap-12">
                 <div class="md:col-span-4 relative">
                     <span class="font-label-sm text-label-sm text-outline mb-8 block">[01] · <span lang="en">PROFILE</span><span lang="es">PERFIL</span></span>
@@ -335,7 +393,7 @@
         </section>
 
         <!-- [02] Experience Section -->
-        <section class="px-margin-desktop py-section-gap border-b border-outline/10" id="experience">
+        <section class="px-6 md:px-margin-desktop py-24 md:py-section-gap border-b border-outline/10" id="experience">
             <div class="max-w-6xl mx-auto">
                 <span class="font-label-sm text-label-sm text-outline mb-12 block">[02] · <span lang="en">TIMELINE</span><span lang="es">LÍNEA DE TIEMPO</span></span>
                 <div class="space-y-24">
@@ -408,7 +466,7 @@
         </section>
 
         <!-- [03] Skills Section -->
-        <section class="px-margin-desktop py-section-gap bg-surface-container" id="skills">
+        <section class="px-6 md:px-margin-desktop py-24 md:py-section-gap bg-surface-container" id="skills">
             <div class="max-w-6xl mx-auto">
                 <span class="font-label-sm text-label-sm text-outline mb-12 block">[03] · <span lang="en">STACK</span><span lang="es">TECNOLOGÍAS</span></span>
                 <div class="grid grid-cols-1 md:grid-cols-4 gap-12">
@@ -453,12 +511,12 @@
         </section>
 
         <!-- [04] Contact Section -->
-        <section class="px-margin-desktop py-section-gap relative overflow-hidden" id="contact">
+        <section class="px-6 md:px-margin-desktop py-24 md:py-section-gap relative overflow-hidden" id="contact">
             <div class="max-w-6xl mx-auto relative z-10">
                 <span class="font-label-sm text-label-sm text-outline mb-12 block">[04] · <span lang="en">CONTACT</span><span lang="es">CONTACTO</span></span>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-24 items-center">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-24 items-center">
                     <div>
-                        <h2 class="font-display-xl text-7xl uppercase mb-8 leading-none text-on-background">
+                        <h2 class="font-display-xl text-5xl md:text-7xl uppercase mb-8 leading-none text-on-background">
                             <span lang="en">INITIATE<br/>COMMUNICATION</span>
                             <span lang="es">INICIAR<br/>COMUNICACIÓN</span>
                         </h2>
@@ -516,7 +574,7 @@
 
     <!-- Footer -->
     <footer class="bg-surface-container-lowest border-t border-outline/10">
-        <div class="flex flex-col md:flex-row justify-between items-center px-margin-desktop py-gutter w-full">
+        <div class="flex flex-col md:flex-row gap-4 md:gap-0 justify-between items-center px-6 md:px-margin-desktop py-gutter w-full">
             <div class="flex items-center gap-4">
                 <span class="font-label-sm text-label-sm font-bold text-on-surface">© 2026 GERMÁN FIGUEROA</span>
                 <span class="hidden md:inline h-4 w-[1px] bg-outline/20"></span>
