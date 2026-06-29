@@ -245,11 +245,50 @@
         }
     }
 
-    if (document.readyState === 'loading') {
-        window.addEventListener('DOMContentLoaded', () => renderStreaming(true));
-    } else {
+    // ---- Reveal: ocultamos el preloader cuando fuentes + recursos están listos ----
+    // Esto evita el destello con tipografía por defecto (FOUC) y deja que el tipeo
+    // del hero arranque recién cuando el contenido ya es visible.
+    const ICON_FONT = '400 24px "Material Symbols Outlined"';
+
+    function waitForIconFont() {
+        if (!document.fonts) return Promise.resolve();
+        if (document.fonts.check(ICON_FONT)) return Promise.resolve();
+        return document.fonts.load(ICON_FONT).catch(() => {});
+    }
+
+    let revealed = false;
+    function reveal() {
+        if (revealed) return;
+        revealed = true;
+        root.classList.remove('is-loading');
+        root.classList.add('loaded');
+        const preloader = document.getElementById('preloader');
+        if (preloader) {
+            setTimeout(() => preloader.remove(), 650);
+        }
         renderStreaming(true);
     }
+
+    const fontsReady = (document.fonts && document.fonts.ready)
+        ? document.fonts.ready
+        : Promise.resolve();
+
+    const windowLoaded = new Promise((resolve) => {
+        if (document.readyState === 'complete') {
+            resolve();
+        } else {
+            window.addEventListener('load', resolve, { once: true });
+        }
+    });
+
+    // La página se revela cuando todo carga (o tras el failsafe).
+    Promise.race([
+        Promise.all([fontsReady, windowLoaded]),
+        new Promise((resolve) => setTimeout(resolve, 3500))
+    ]).then(reveal);
+
+    // Los iconos solo aparecen cuando Material Symbols está lista — sin timeout.
+    waitForIconFont().then(() => root.classList.add('icons-ready'));
 
     // ---- Formspree AJAX Submission ----
     const contactForm = document.getElementById('contact-form');
