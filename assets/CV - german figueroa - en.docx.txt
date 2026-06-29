@@ -1,0 +1,52 @@
+﻿geerman.figueroa@gmail.com
+Germán Figueroa
+Career Summary
+Full Stack Developer with 9+ years of experience building web applications, with a strong focus on React and occasional backend development using Node.js. I also work with Python when the project requires it. Throughout my career, I have worked on products across different industries, collaborating closely with designers, product teams, and stakeholders to deliver practical and user-focused solutions.
+
+
+I stay up to date with modern AI-driven development practices, using automation and AI tools whenever they help improve efficiency and speed up delivery. At the same time, I maintain full ownership of the implementation and final product, using AI as a tool to enhance my work rather than relying on it completely.
+Summary of Qualifications
+Proficient In:
+* PHP
+* Laravel
+* Javascript
+* Node.js
+* Express.js
+* Typescript
+* React.js
+* Next.js
+* Redux
+* Postgres
+* GitHub
+* Figma
+
+
+Languages
+* Spanish (native speaker)
+* English (advanced)
+Career History
+Valere
+SoyElla        Jun. 2025  – May. 2026
+Frontend Developer
+Lead frontend development for ELLA, a women’s health platform focused on menopause and medical care. Built the web app with React 19, TypeScript, and Chakra UI, and handled backend integration for payments (Stripe), appointment scheduling and medical records.
+* Key technologies: React, Typescript, Charka UI, Figma.
+Globant, Buenos Aires, Argentina
+PharmaMar        Nov. 2025  – Present
+Frontend Developer
+* Led the frontend development area for a pharmaceutical research application built with Next.js, focusing on AI assistant interaction and data-driven interfaces. Developed chat interfaces, data visualization components, conversation management systems, and document review workflows, integrated with backend APIs and Azure AD authentication (MSAL) with internationalization support. Implemented and maintained API routes and server actions as a Backend-for-Frontend (BFF) layer for file upload/download and proxying to external services. Participated in distributed tracing implementation using OpenTelemetry. Collaborated in deployments to test environments and maintained close alignment with backend and infrastructure teams throughout the project lifecycle.
+
+
+* Key technologies: Next.js, Typescript, Emotion, Material UI, Figma, Jest.
+
+Command Alkon        Oct. 2023  – Nov.2025
+Frontend Developer
+Collaborating in the development of software solutions for Command Alkon, a global leader in the ready-mixed concrete, concrete products, asphalt, aggregates, and cement industry. Working on the front-end implementation of dashboards (including their widgets) and reports, as well as a Scale Ticketing application that records vehicle weight and generates tickets based on selected material types. Employing technologies such as React.js, Vite, Material UI, and Recharts to enhance the user interface and experience. Implementing Agile methodology in the development process.
+* Key technologies: React, Typescript, Emotion, Material UI, Figma, Jest.
+ORT Argentina, Buenos Aires, Argentina        Jan. 2019 – Oct. 2023
+Full stack developer
+Contributed to the development of the virtual campus, enhancing user experience with PHP MVC-based tools, HTML/CSS layouts, and JavaScript interactivity. Managed and optimized PostgreSQL databases, and successfully migrated PHP 5.5 applications to 7.2.
+* Key technologies: PHP, MVC, HTML/CSS, JavaScript, React, Next.js, PostgreSQL.
+REA (Radio Electrónica Argentina), Buenos Aires, Argentina        Jan. 2019 –  Jan. 2024
+Full stack developer
+Led the development of a custom WordPress theme, incorporating HTML/CSS page layouts, JavaScript plugins, and MercadoPago API integration for seamless payment processing.
+* Key technologies: PHP, WordPress, HTML/CSS, JavaScript, MercadoPago API.

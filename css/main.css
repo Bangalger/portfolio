@@ -96,3 +96,38 @@ main.lang-switching { opacity: 0; }
     border-bottom-color: #cc2200;
     color: #cc2200;
 }
+
+/* ============================================================
+   ACCESIBILIDAD (a11y)
+   ============================================================ */
+
+/* Indicador de foco visible para navegación por teclado.
+   Solo se muestra con :focus-visible (teclado), no al hacer click. */
+:focus-visible {
+    outline: 2px solid #cc2200;
+    outline-offset: 2px;
+    border-radius: 2px;
+}
+.dark :focus-visible {
+    outline-color: #ff7a5c;
+}
+
+/* Reducción de movimiento: desactiva animaciones repetitivas para usuarios
+   que activaron "prefers-reduced-motion" en su sistema operativo. */
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+    .hal-pulse,
+    .stream-cursor {
+        animation: none !important;
+    }
+    /* El cursor de tipeo permanece visible (sin parpadeo). */
+    .stream-cursor {
+        opacity: 1;
+    }
+    /* Transición de cambio de idioma instantánea. */
+    main {
+        transition: none !important;
+    }
+}

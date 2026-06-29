@@ -6,6 +6,13 @@
     const mainEl = document.querySelector('main');
     const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+    // ---- Accesibilidad: ocultar iconos decorativos a lectores de pantalla ----
+    // Los Material Symbols se renderizan como texto (ej. "south"); sin aria-hidden
+    // un lector de pantalla leería esa palabra literalmente.
+    document.querySelectorAll('.material-symbols-outlined').forEach((icon) => {
+        icon.setAttribute('aria-hidden', 'true');
+    });
+
     // ---- Tema ----
     const savedTheme = store.getItem("theme");
     // Default to dark if prefers-color-scheme matches and no saved theme, else light.
@@ -34,6 +41,8 @@
     // ---- Idioma ----
     const savedLang = store.getItem("lang");
     root.dataset.lang = savedLang || (navigator.language.startsWith("es") ? "es" : "en");
+    // Mantener el atributo lang del <html> sincronizado para los lectores de pantalla.
+    root.lang = root.dataset.lang;
 
     let langSwitching = false;
     document.querySelectorAll(".toggle--lang").forEach((btn) => {
@@ -43,6 +52,7 @@
 
             const applyLang = () => {
                 root.dataset.lang = next;
+                root.lang = next;
                 store.setItem("lang", next);
                 // Re-render del texto streaming en el nuevo idioma (sin re-tipear).
                 renderStreaming(false);
